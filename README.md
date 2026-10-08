@@ -3,6 +3,8 @@
 # European Payments Transformation
 ### *for the instant era* · *pour l'ère de l'instantané*
 
+**Website:** [Luxembourg Wealth Benchmark](https://aishwaryamarkandu.github.io/luxembourg-wealth-benchmark/)
+
 **How should a European bank transform its payments operating model for the instant payments era?**<br>
 **Comment une banque européenne doit-elle transformer son modèle opérationnel des paiements pour l'ère des paiements instantanés ?**
 
