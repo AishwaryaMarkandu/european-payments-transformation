@@ -1,0 +1,1258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="European Payments Transformation: how a European bank should transform its payments operating model for the instant payments era. A portfolio case study by Aishwarya.">
+<meta property="og:title" content="European Payments Transformation">
+<meta property="og:description" content="AS-IS to TO-BE case study on instant payments: eight-lens diagnosis, scenario lab, 2026-2029 roadmap and business case.">
+<style>:root{color-scheme:light}html,body{margin:0}body{font-size:14px}</style>
+<title>European Payments Transformation</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout concept: a Big-4 style study read top to bottom. Dark navy hero built around the 10-second ring,
+   then paper-light sections, each lens answered with one visual and one first-person verdict. */
+:root{
+  --bg:#EFF2F7; --surface:#FFFFFF; --surface-2:#F6F8FB; --ink:#0B1A2E; --ink-2:#47576D; --ink-3:#74839B; --line:#D7DEE9;
+  --blue:#1B3FA6; --blue-soft:#E3E9FA; --signal:#E39B00; --signal-soft:#FFF0C9;
+  --teal:#0B8574; --teal-soft:#D9F1EC; --coral:#CC4234; --coral-soft:#FADFDA; --slate:#8591A6;
+  --s1:#3F63CF; --s2:#7A59D1; --s3:#D0594A; --s4:#E39B00; --s5:#0B9A86; --s6:#7C8AA3;
+  --hero-bg:#09152B; --hero-fg:#EAF0FB; --hero-dim:#9DB0D0; --hero-line:#243759;
+  --shadow:0 1px 2px rgba(11,26,46,.06),0 10px 28px rgba(11,26,46,.07);
+  --f-display:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --f-body:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#08101F; --surface:#0F1A2E; --surface-2:#13213A; --ink:#E9EFFA; --ink-2:#A2B3CD; --ink-3:#74879F; --line:#22334F;
+  --blue:#8EA8FF; --blue-soft:#192A52; --signal:#FFC233; --signal-soft:#3A2F10;
+  --teal:#3FCDB6; --teal-soft:#10342F; --coral:#FF8272; --coral-soft:#3C1E1B; --slate:#7C8CA6;
+  --s1:#7B97F0; --s2:#A58BEA; --s3:#F08577; --s4:#FFC233; --s5:#3FCDB6; --s6:#8FA0BA;
+  --hero-bg:#050C1A; --hero-line:#1C2E4E;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.35); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#08101F; --surface:#0F1A2E; --surface-2:#13213A; --ink:#E9EFFA; --ink-2:#A2B3CD; --ink-3:#74879F; --line:#22334F;
+  --blue:#8EA8FF; --blue-soft:#192A52; --signal:#FFC233; --signal-soft:#3A2F10;
+  --teal:#3FCDB6; --teal-soft:#10342F; --coral:#FF8272; --coral-soft:#3C1E1B; --slate:#7C8CA6;
+  --s1:#7B97F0; --s2:#A58BEA; --s3:#F08577; --s4:#FFC233; --s5:#3FCDB6; --s6:#8FA0BA;
+  --hero-bg:#050C1A; --hero-line:#1C2E4E;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.35); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}
+h1,h2,h3,h4{margin:0;text-wrap:balance;font-weight:400}
+p{margin:0}
+.wrap{max-width:1140px;margin-inline:auto;padding-inline:20px}
+.mono{font-family:var(--f-mono)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:6px}
+
+/* top bar */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.topbar .in{display:flex;align-items:center;gap:14px;height:56px}
+.brand{font-family:var(--f-display);font-size:21px;white-space:nowrap;text-decoration:none;color:var(--ink)}
+.brand i{color:var(--signal)}
+.navlinks{display:flex;gap:2px;overflow-x:auto;flex:1;min-width:0;scrollbar-width:none}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{white-space:nowrap;font-size:13px;font-weight:500;color:var(--ink-2);padding:8px 10px;border-radius:8px;text-decoration:none}
+.navlinks a:hover{background:var(--surface);color:var(--ink)}
+.themebtn{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:var(--surface);cursor:pointer;display:grid;place-items:center;flex:none}
+.themebtn svg{width:18px;height:18px}
+.langbtn{display:flex;align-items:center;gap:2px;height:36px;padding:3px;border-radius:10px;border:1px solid var(--line);background:var(--surface);cursor:pointer;flex:none}
+.langbtn span{font:600 12px var(--f-mono);padding:6px 9px;border-radius:7px;color:var(--ink-2);letter-spacing:.04em}
+.langbtn span.on{background:var(--ink);color:var(--bg)}
+
+
+/* hero */
+.hero{background:var(--hero-bg);color:var(--hero-fg);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(900px 500px at 82% 30%,rgba(63,99,207,.28),transparent 60%),
+  linear-gradient(var(--hero-line) 1px,transparent 1px) 0 0/100% 56px;opacity:.55;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.12fr .88fr;gap:48px;align-items:center;padding-block:72px 64px}
+.kicker{font:500 12px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--hero-dim);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.kicker b{color:#1a1200;background:var(--signal);padding:3px 8px;border-radius:5px;font-weight:500;letter-spacing:.08em}
+.hero h1{font-family:var(--f-display);font-size:clamp(44px,6.2vw,84px);line-height:.96;letter-spacing:-.01em;margin-top:22px}
+.hero h1 em{color:var(--signal);font-style:italic}
+.hero .q{margin-top:26px;font-size:19px;line-height:1.5;color:var(--hero-fg);max-width:34em}
+.hero .q span{color:var(--hero-dim)}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn.pri{background:var(--signal);color:#1a1200}
+.btn.sec{border-color:var(--hero-line);color:var(--hero-fg);background:rgba(255,255,255,.04)}
+.hero .fine{margin-top:26px;font-size:13px;color:var(--hero-dim);max-width:40em;border-top:1px solid var(--hero-line);padding-top:14px}
+.ring{width:100%;max-width:440px;margin-inline:auto;display:block}
+.ring .arc{transition:none;animation:draw 1.6s cubic-bezier(.2,.7,.2,1) both}
+@keyframes draw{from{stroke-dashoffset:var(--len)}}
+.ringlegend{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:8px;font-size:13px;color:var(--hero-dim)}
+.ringlegend b{color:var(--hero-fg);font-weight:600}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+
+.stats{background:var(--surface);border-bottom:1px solid var(--line)}
+.stats .sg{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding-block:0}
+.stat{padding:26px 22px 24px 0;border-right:1px solid var(--line);margin-right:22px}
+.stat:last-child{border:0;margin:0}
+.stat .n{font-family:var(--f-display);font-size:52px;line-height:1;letter-spacing:-.01em}
+.stat .l{margin-top:8px;font-size:13.5px;color:var(--ink-2);max-width:22em}
+.src{font:400 11.5px var(--f-mono);color:var(--ink-3);padding-block:10px 14px}
+
+/* sections */
+section{padding-block:76px}
+section.alt{background:var(--surface);border-block:1px solid var(--line)}
+.eyebrow{font:500 12px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:8px;height:8px;background:var(--signal);border-radius:2px}
+h2{font-family:var(--f-display);font-size:clamp(34px,4.6vw,56px);line-height:1.02;letter-spacing:-.01em;margin-top:14px;max-width:18em}
+h2 em{font-style:italic;color:var(--blue)}
+.lead{font-size:18px;color:var(--ink-2);max-width:44em;margin-top:18px}
+h3{font-family:var(--f-display);font-size:28px;line-height:1.1}
+h4{font:600 13px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.sechead{margin-bottom:38px}
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;min-width:0}
+section.alt .card{background:var(--surface-2)}
+.card.flat{box-shadow:none}
+.card.lift{box-shadow:var(--shadow)}
+.take{display:flex;gap:16px;align-items:flex-start;margin-top:30px;padding:20px 22px;border:1px dashed color-mix(in srgb,var(--signal) 70%,var(--line));border-radius:14px;background:var(--signal-soft)}
+.take .av{flex:none;width:38px;height:38px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font:italic 22px/1 var(--f-display)}
+.take .tk{font:500 11px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.take p{margin-top:4px;font-size:16.5px;color:var(--ink)}
+.chip{display:inline-flex;align-items:center;gap:6px;font:500 11.5px var(--f-mono);padding:3px 9px;border-radius:999px;white-space:nowrap}
+.chip.ok{background:var(--teal-soft);color:var(--teal)}
+.chip.warn{background:var(--signal-soft);color:color-mix(in srgb,var(--signal) 70%,var(--ink))}
+.chip.bad{background:var(--coral-soft);color:var(--coral)}
+.chip.info{background:var(--blue-soft);color:var(--blue)}
+.chip.mute{background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+.vs .col{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--surface);min-width:0}
+section.alt .vs .col{background:var(--surface-2)}
+.vs .col.to{border-color:color-mix(in srgb,var(--blue) 45%,var(--line))}
+.vs ul{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.vs li{position:relative;padding-left:22px;font-size:15px;color:var(--ink-2)}
+.vs li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:2px;background:var(--coral)}
+.vs .to li::before{background:var(--teal)}
+.vs li b{color:var(--ink);font-weight:600}
+.tag{font:500 11px var(--f-mono);letter-spacing:.12em;text-transform:uppercase}
+.tag.a{color:var(--coral)} .tag.t{color:var(--blue)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:500;cursor:pointer;color:var(--ink-2)}
+.tab[aria-pressed="true"],.tab[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;padding:3px;background:var(--surface)}
+.seg button{border:0;background:transparent;padding:7px 14px;border-radius:7px;font-size:13px;font-weight:600;cursor:pointer;color:var(--ink-2)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th{font:500 11.5px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink-2)}
+td b{color:var(--ink);font-weight:600}
+tr:last-child td{border-bottom:0}
+.num{font-variant-numeric:tabular-nums}
+
+/* timeline */
+.tl{position:relative;display:grid;gap:0;margin-top:8px}
+.tl .row{display:grid;grid-template-columns:130px 26px 1fr;gap:14px;position:relative;padding-bottom:22px}
+.tl .row::before{content:"";position:absolute;left:156px;top:16px;bottom:-2px;width:2px;background:var(--line)}
+.tl .row:last-child::before{display:none}
+.tl .when{font:500 13px var(--f-mono);text-align:right;padding-top:2px;color:var(--ink-2)}
+.tl .pt{width:14px;height:14px;border-radius:50%;margin:4px 0 0 6px;border:2px solid var(--blue);background:var(--surface);position:relative;z-index:1}
+.tl .done .pt{background:var(--blue)}
+.tl .now .pt{border-color:var(--signal);background:var(--signal);box-shadow:0 0 0 5px var(--signal-soft)}
+.tl h5{margin:0;font:600 15.5px var(--f-body);color:var(--ink)}
+.tl p{font-size:14.5px;color:var(--ink-2);margin-top:2px;max-width:46em}
+.tl .row.now h5{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+
+/* lens tiles */
+.lens{display:grid;gap:6px}
+.lens .t{font:600 15px var(--f-body)}
+.lens .qn{font-family:var(--f-display);font-style:italic;font-size:19px;line-height:1.2;color:var(--ink-2)}
+.chain{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:22px}
+.chain .st{padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--surface);font-size:13.5px;font-weight:500}
+.chain .st.hl{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chain .ar{color:var(--ink-3);font-family:var(--f-mono)}
+
+/* heatmap + radar */
+.heat td,.heat th{padding:9px 10px}
+.heat td.v{text-align:center;font:500 14px var(--f-mono);color:var(--ink);min-width:54px}
+.heat td.ev{font-size:13px;min-width:190px}
+.legend-scale{display:flex;align-items:center;gap:10px;font:400 11.5px var(--f-mono);color:var(--ink-3);margin-top:12px}
+.legend-scale .bar{height:8px;width:160px;border-radius:4px;background:linear-gradient(90deg,var(--coral),var(--signal),var(--teal))}
+.radar text{font:500 12px var(--f-body);fill:var(--ink-2)}
+
+/* latency bars */
+.lat{margin-top:6px}
+.latrow{display:grid;grid-template-columns:120px 1fr 60px;gap:12px;align-items:center;margin-bottom:12px}
+.latrow .nm{font-size:13.5px;font-weight:600}
+.latrow .tot{font:500 14px var(--f-mono);text-align:right}
+.latbar{display:flex;height:46px;border-radius:8px;overflow:hidden;background:var(--surface-2);border:1px solid var(--line);position:relative}
+.latbar > div{display:grid;place-items:center;font:500 11.5px var(--f-mono);color:#fff;transition:opacity .2s;min-width:0;overflow:hidden;white-space:nowrap}
+.latbar.dim > div:not(.on){opacity:.42}
+.s1{background:var(--s1)}.s2{background:var(--s2)}.s3{background:var(--s3)}.s4{background:var(--s4);color:#1a1200!important}.s5{background:var(--s5);color:#04201b!important}.s6{background:var(--s6)}
+.axis{display:grid;grid-template-columns:120px 1fr 60px;gap:12px}
+.axis .ticks{position:relative;height:30px;border-top:1px solid var(--line)}
+.axis .ticks span{position:absolute;top:6px;font:400 11px var(--f-mono);color:var(--ink-3);transform:translateX(-50%)}
+.axis .ticks span:first-child{transform:none}
+.axis .ticks span:last-child{transform:translateX(-100%);color:var(--coral);font-weight:500}
+.axis .ticks i{position:absolute;top:-1px;width:1px;height:6px;background:var(--ink-3)}
+.steps{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin-top:6px}
+.stepbtn{text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:12px;cursor:pointer;display:grid;gap:6px;min-width:0}
+.stepbtn small{font:500 10.5px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.stepbtn span{font-size:13.5px;font-weight:600;line-height:1.25}
+.stepbtn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.stepbtn[aria-pressed="true"] small{color:var(--bg);opacity:.7}
+.stepbtn .sw{height:5px;border-radius:3px}
+
+/* chains and grids */
+.pchain{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:12px}
+.pn{font-size:12px;padding:5px 9px;border-radius:7px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);white-space:nowrap}
+.pn.h{border-color:var(--coral);color:var(--coral);background:var(--coral-soft)}
+.pn.a{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.pchain .arr{color:var(--ink-3);font-size:11px}
+.cover{display:grid;grid-template-columns:44px repeat(24,minmax(0,1fr));gap:2px;font:400 10.5px var(--f-mono);color:var(--ink-3);margin-top:12px}
+.cover .c{height:16px;border-radius:2px;background:var(--surface-2);border:1px solid var(--line)}
+.cover .c.full{background:var(--blue);border-color:var(--blue)}
+.cover .c.lean{background:color-mix(in srgb,var(--blue) 45%,var(--surface));border-color:transparent}
+.cover .c.call{background:var(--signal);border-color:var(--signal);opacity:.75}
+.cover .c.auto{background:var(--teal-soft);border-color:transparent}
+.cover .d{align-self:center}
+.cover .hh{text-align:center}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-2);margin-top:12px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-2px}
+
+.layers{display:grid;gap:10px}
+.layer{display:grid;grid-template-columns:170px 1fr;gap:16px;align-items:center;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.layer .ln{font:600 13px var(--f-body)}
+.layer .ln small{display:block;font:400 11.5px var(--f-mono);color:var(--ink-3);margin-top:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.comp{font-size:13px;padding:7px 11px;border-radius:8px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink)}
+.comp.w{border-color:var(--coral);background:var(--coral-soft);color:var(--coral)}
+.comp.n{border-color:color-mix(in srgb,var(--blue) 50%,var(--line));background:var(--blue-soft);color:var(--blue);font-weight:500}
+
+.band{display:flex;height:34px;border-radius:8px;overflow:hidden;margin-top:12px}
+.band > div{display:grid;place-items:center;font:500 12px var(--f-mono);color:#fff}
+.hbar{display:grid;grid-template-columns:150px 1fr 70px;gap:12px;align-items:center;margin-top:10px;font-size:13.5px}
+.hbar .tr{height:12px;background:var(--surface-2);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.hbar .tr i{display:block;height:100%;border-radius:6px}
+.hbar .v{font:500 13px var(--f-mono);text-align:right}
+
+/* lab */
+.lab{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+.run{border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden;min-width:0}
+.run header{padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+.run.to header{background:var(--blue-soft)}
+.run ol{list-style:none;margin:0;padding:8px 20px 4px}
+.run li{display:grid;grid-template-columns:22px 1fr auto;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.run li:last-child{border:0}
+.run .ic{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font:600 11px var(--f-mono);color:#fff;margin-top:1px}
+.ic.ok{background:var(--teal)} .ic.warn{background:var(--signal);color:#1a1200} .ic.bad{background:var(--coral)}
+.run li b{display:block;font-size:14px}
+.run li span.d{color:var(--ink-2);font-size:13.5px}
+.run .ms{font:500 12.5px var(--f-mono);color:var(--ink-2)}
+.run footer{padding:16px 20px;border-top:1px solid var(--line);font-size:14.5px}
+.run footer b{display:block;font-size:15.5px;margin-bottom:2px}
+
+/* roadmap */
+.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:6px}
+.ph{position:relative;border:0;cursor:pointer;text-align:left;padding:22px 30px 22px 24px;background:var(--blue-soft);color:var(--ink);clip-path:polygon(0 0,calc(100% - 22px) 0,100% 50%,calc(100% - 22px) 100%,0 100%,22px 50%);margin-right:-12px}
+.ph:first-child{clip-path:polygon(0 0,calc(100% - 22px) 0,100% 50%,calc(100% - 22px) 100%,0 100%);border-radius:12px 0 0 12px}
+.ph .y{font:italic 38px/1 var(--f-display)}
+.ph .n{font:600 13px var(--f-body);margin-top:4px}
+.ph .v{font:400 11.5px var(--f-mono);margin-top:3px;color:var(--ink-3)}
+.ph[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.ph[aria-selected="true"] .v{color:var(--bg);opacity:.7}
+.phpanel{margin-top:22px;display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+.ws{display:grid;gap:10px;margin:14px 0 0;padding:0;list-style:none}
+.ws li{display:grid;grid-template-columns:150px 1fr;gap:12px;font-size:14.5px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.ws li:last-child{border:0;padding:0}
+.ws li b{font:600 12.5px var(--f-body);color:var(--ink)}
+.ws li span{color:var(--ink-2)}
+.gate{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:8px}
+.gate li{position:relative;padding-left:26px;font-size:14.5px;color:var(--ink-2)}
+.gate li::before{content:"";position:absolute;left:0;top:3px;width:15px;height:15px;border:2px solid var(--teal);border-radius:4px}
+.gate li::after{content:"";position:absolute;left:5px;top:6px;width:4px;height:8px;border:solid var(--teal);border-width:0 2px 2px 0;transform:rotate(40deg)}
+.kpis3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.kpis3 > div{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:12px}
+.kpis3 .n{font:italic 30px/1 var(--f-display)}
+.kpis3 .l{font-size:12px;color:var(--ink-3);margin-top:4px}
+.matrix td{font-size:13px;min-width:190px}
+.matrix td:first-child{min-width:150px;font-weight:600;color:var(--ink)}
+.matrix th.cur,.matrix td.cur{background:color-mix(in srgb,var(--blue) 9%,var(--surface))}
+
+/* sandbox */
+.sand{display:grid;grid-template-columns:300px 1fr;gap:22px;margin-top:22px}
+.ctl{display:grid;gap:20px;align-content:start}
+.ctl label{font-size:13.5px;font-weight:600;display:flex;justify-content:space-between;gap:8px}
+.ctl label output{font:500 13px var(--f-mono);color:var(--blue)}
+input[type=range]{width:100%;accent-color:var(--blue);margin-top:8px}
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px}
+.res > div{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:12px}
+.res .n{font:italic 32px/1 var(--f-display)}
+.res .l{font-size:12px;color:var(--ink-3);margin-top:4px}
+.chartbox svg{width:100%;height:auto;display:block}
+.chartbox text{font:400 12px var(--f-mono);fill:var(--ink-3)}
+#cx text{font-size:14px}
+.chartbox text.lab{fill:var(--ink-2);font-weight:500}
+#cx text.lab{font-size:13px}
+
+/* BA */
+.quad{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto;gap:10px;position:relative;padding:0 0 28px 28px}
+.quad .chip{white-space:normal}
+.quad .q{min-width:0;border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--surface);min-height:150px}
+.quad .q h5{margin:0 0 10px;font:500 11px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.quad .q.hi{border-color:color-mix(in srgb,var(--blue) 45%,var(--line));background:var(--blue-soft)}
+.quad .ax{position:absolute;font:400 11px var(--f-mono);color:var(--ink-3)}
+.quad .ax.y{left:0;top:50%;transform:rotate(-90deg) translateX(-50%);transform-origin:left top;white-space:nowrap}
+.quad .ax.x{bottom:0;left:50%;transform:translateX(-50%)}
+.persona h3{font-size:26px}
+.persona .role{font-size:13px;color:var(--ink-3);margin-top:2px}
+.persona dl{margin:14px 0 0;display:grid;gap:10px}
+.persona dt{font:500 10.5px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.persona dd{margin:2px 0 0;font-size:14.5px;color:var(--ink-2)}
+.persona dd.me{color:var(--ink)}
+
+.risk-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}
+.foot{background:var(--hero-bg);color:var(--hero-dim);padding-block:44px 54px;font-size:14px}
+.foot .big{font-family:var(--f-display);font-size:34px;color:var(--hero-fg)}
+.foot a{color:var(--signal)}
+ul.src-list{padding-left:18px;margin:10px 0 0;display:grid;gap:8px;font-size:14.5px;color:var(--ink-2)}
+
+@media (max-width:980px){
+  .hero .wrap{grid-template-columns:1fr;gap:28px;padding-block:48px 40px}
+  .g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .phpanel,.sand{grid-template-columns:1fr}
+  .stats .sg{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:0;margin-right:0}
+}
+@media (max-width:720px){
+  section{padding-block:52px}
+  .g2,.g3,.g4,.vs,.lab{grid-template-columns:1fr}
+  .latrow,.axis{grid-template-columns:1fr}
+  .latrow .tot{text-align:left}
+  .axis > :first-child,.axis > :last-child{display:none}
+  .layer{grid-template-columns:1fr}
+  .hbar{grid-template-columns:1fr 70px}
+  .hbar span:first-child{grid-column:1/-1}
+  .tl .row{grid-template-columns:84px 22px 1fr;gap:10px}
+  .tl .row::before{left:106px}
+  .phases{grid-template-columns:1fr;gap:8px}
+  .ph,.ph:first-child{clip-path:none;border-radius:12px;margin:0}
+  .ws li{grid-template-columns:1fr;gap:2px}
+  .res,.kpis3{grid-template-columns:1fr}
+  .stat .n{font-size:40px}
+  .quad{grid-template-columns:minmax(0,1fr);padding-left:0}
+  .quad .ax{display:none}
+  .navlinks{mask-image:linear-gradient(90deg,#000 85%,transparent)}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ring .arc{animation:none}}
+</style>
+
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap in">
+    <a class="brand" href="#top">Aishwarya<i>.</i></a>
+    <nav class="navlinks" aria-label="Sections">
+      <a href="#summary">Summary</a><a href="#context">Why now</a><a href="#approach">Method</a><a href="#diagnosis">AS-IS</a>
+      <a href="#lenses">Eight lenses</a><a href="#lab">Scenario lab</a><a href="#target">TO-BE</a><a href="#roadmap">Roadmap</a>
+      <a href="#case">Business case</a><a href="#ba">BA toolkit</a><a href="#risks">Risks</a><a href="#sources">Sources</a>
+    </nav>
+    <button class="langbtn" id="langBtn" aria-label="Switch language" title="Switch language"><span data-l="en" class="on">EN</span><span data-l="fr">FR</span></button>
+    <button class="themebtn" id="themeBtn" aria-label="Toggle light and dark theme" title="Toggle theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <div class="kicker"><b>Portfolio project 05</b><span>Payments operating model</span><span>Financial Services</span></div>
+      <h1>European Payments Transformation <em>for the instant era</em></h1>
+      <p class="q">How should a European bank transform its payments operating model for the instant payments era? <span>I mapped how one reference bank really runs payments today, then designed where it has to be by 2029.</span></p>
+      <div class="cta"><a class="btn pri" href="#summary">Read my executive summary</a><a class="btn sec" href="#lab">Try the scenario lab</a></div>
+      <p class="fine">A personal case study by Aishwarya, Paris, October 2026. The bank is fictional and every bank-level figure is a modelling assumption I made. Market and regulatory facts come from the ECB, the EPC and the DNB (see Sources).</p>
+    </div>
+    <div>
+      <svg class="ring" viewBox="0 0 480 480" role="img" aria-label="Two rings on a ten second dial. The bolt-on stack uses 9.1 seconds, my target design uses 2.5 seconds.">
+        <g id="ticks"></g>
+        <circle cx="240" cy="240" r="190" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="26"/>
+        <circle cx="240" cy="240" r="150" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="26"/>
+        <circle class="arc" cx="240" cy="240" r="190" fill="none" stroke="#F08577" stroke-width="26" stroke-linecap="butt" stroke-dasharray="1193.8" style="stroke-dashoffset:107.4;--len:1193.8" transform="rotate(-90 240 240)"/>
+        <circle class="arc" cx="240" cy="240" r="150" fill="none" stroke="#3FCDB6" stroke-width="26" stroke-linecap="butt" stroke-dasharray="942.5" style="stroke-dashoffset:706.9;--len:942.5" transform="rotate(-90 240 240)"/>
+        <line x1="240" y1="38" x2="240" y2="66" stroke="#FFC233" stroke-width="3"/>
+        <text x="240" y="262" text-anchor="middle" font-family="Instrument Serif,Georgia,serif" font-size="108" fill="#EAF0FB">10</text>
+        <text x="240" y="292" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="13" letter-spacing="3" fill="#9DB0D0">SECONDS, ALL-IN</text>
+      </svg>
+      <div class="ringlegend">
+        <span><i class="dot" style="background:#F08577"></i>Bolt-on stack today <b>9.1 s</b> p99</span>
+        <span><i class="dot" style="background:#3FCDB6"></i>My target design <b>2.5 s</b> p99</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="wrap sg">
+    <div class="stat"><div class="n">35.6%</div><div class="l">of SEPA credit transfer volume was instant in Q1 2026</div></div>
+    <div class="stat"><div class="n">10.1bn</div><div class="l">instant payments in 2025, up 73% on the year before</div></div>
+    <div class="stat"><div class="n">93%</div><div class="l">of euro-area PSPs already offered SCT Inst in April 2026</div></div>
+    <div class="stat"><div class="n">10 s</div><div class="l">for funds to reach the payee, any hour, any day, all year</div></div>
+  </div>
+  <div class="wrap src">Sources: EPC update to the ECB AMI-Pay group, 5 May 2026; Instant Payments Regulation as summarised by the DNB.</div>
+</div>
+
+<!-- SUMMARY -->
+<section id="summary">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="eyebrow">Executive summary</div>
+      <h2>Compliance got banks to the starting line. <em>The operating model</em> decides who stays in the race.</h2>
+      <p class="lead">My reference bank passed the 2025 deadlines the way most banks did, by wrapping a batch-era stack in an instant gateway. It works. It also leaves almost no room for a bad day, and volume is growing fast.</p>
+    </div>
+    <div class="grid g3">
+      <div class="card lift"><h4>What I found</h4><h3 style="margin-top:10px">Compliant, not transformed</h3><p style="margin-top:10px;color:var(--ink-2)">Across my eight lenses the bank scores <b class="num">2.0 out of 5</b> on average. Compliance is its strongest lens at 3.0. Architecture and exception handling are its weakest at 1.5.</p></div>
+      <div class="card lift"><h4>What I found</h4><h3 style="margin-top:10px">The 10 seconds are 91% spent</h3><p style="margin-top:10px;color:var(--ink-2)">In my latency model, the bolt-on stack uses <b class="num">9.1 s</b> at p99. A slow beneficiary bank or a busy fraud engine is enough to miss the target. My redesigned flow needs 2.5 s.</p></div>
+      <div class="card lift"><h4>What I found</h4><h3 style="margin-top:10px">The problems sit in the seams</h3><p style="margin-top:10px;color:var(--ink-2)">Fraud, sanctions, liquidity and exceptions run as separate silos. A Saturday-night incident becomes a Monday-morning problem, and the customer feels every hour of it.</p></div>
+    </div>
+    <div class="grid g2" style="margin-top:18px">
+      <div class="card">
+        <h4>What I recommend</h4>
+        <div class="pchain" style="margin-top:16px;gap:10px;align-items:stretch">
+          <div class="chain" style="margin:0;flex-direction:column;align-items:stretch;width:100%">
+            <div class="st"><b class="mono" style="color:var(--blue)">2026</b> &nbsp;Foundation: make every payment visible, agree the target.</div>
+            <div class="st"><b class="mono" style="color:var(--blue)">2027</b> &nbsp;Process transformation: one decision layer, 24/7 operations.</div>
+            <div class="st"><b class="mono" style="color:var(--blue)">2028</b> &nbsp;Automation: exceptions and liquidity handled by software first.</div>
+            <div class="st hl"><b class="mono" style="color:var(--signal)">2029</b> &nbsp;Intelligent operations: predict, adapt, learn.</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h4>Where it lands in 2029 (my targets)</h4>
+        <div class="grid g2" style="margin-top:14px;gap:12px">
+          <div><div class="mono" style="font-size:12px;color:var(--ink-3)">Straight-through rate</div><div style="font:italic 40px/1.1 var(--f-display)">91% <span style="color:var(--ink-3)">to</span> 99.2%</div></div>
+          <div><div class="mono" style="font-size:12px;color:var(--ink-3)">Manual touch rate</div><div style="font:italic 40px/1.1 var(--f-display)">6.8% <span style="color:var(--ink-3)">to</span> 0.6%</div></div>
+          <div><div class="mono" style="font-size:12px;color:var(--ink-3)">Fraud loss, bps of volume</div><div style="font:italic 40px/1.1 var(--f-display)">1.9 <span style="color:var(--ink-3)">to</span> 0.7</div></div>
+          <div><div class="mono" style="font-size:12px;color:var(--ink-3)">Unit cost index</div><div style="font:italic 40px/1.1 var(--f-display)">100 <span style="color:var(--ink-3)">to</span> 58</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="take"><div class="av">A</div><div><div class="tk">My decision ask</div><p>I would ask the executive committee for three things in 2026: approval of the target architecture, approval of a 24/7 operating model, and a phased envelope of about €48M released gate by gate. Nothing in year one is irreversible, which is deliberate.</p></div></div>
+  </div>
+</section>
+
+<!-- CONTEXT -->
+<section id="context" class="alt">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="eyebrow">Why now</div>
+      <h2>The deadlines are behind us. <em>The volume curve is not.</em></h2>
+      <p class="lead">I read the Instant Payments Regulation as a floor. It fixes what a bank must offer. It says nothing about how well the machine behind it runs.</p>
+    </div>
+    <div class="grid g2" style="align-items:start">
+      <div class="tl" id="timeline"></div>
+      <div class="grid" style="gap:14px">
+        <div class="card"><h4>Regulation</h4><p style="margin-top:8px;color:var(--ink-2)">Send, receive, verify the payee, screen customers daily, and charge no more than for a standard transfer. Resilience rules under DORA apply on top.</p></div>
+        <div class="card"><h4>Market</h4><p style="margin-top:8px;color:var(--ink-2)">Instant payments grew 73% in 2025 and now make up more than a third of SEPA credit transfers. Every manual workaround scales with that curve.</p></div>
+        <div class="card"><h4>Threat</h4><p style="margin-top:8px;color:var(--ink-2)">An instant payment cannot be pulled back by waiting for the batch. Fraud moves to the channels where money is irrevocable within seconds.</p></div>
+        <div class="take" style="margin-top:0"><div class="av">A</div><div><div class="tk">My read</div><p>The regulation made speed a commodity. What remains scarce is doing it safely, cheaply and at 03:00 on a Sunday.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section id="approach">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="eyebrow">Method</div>
+      <h2>Eight lenses, one question each.</h2>
+      <p class="lead">I analysed the payment chain end to end through eight lenses, scored each one for maturity, designed a TO-BE, and sequenced it into a roadmap with exit gates.</p>
+    </div>
+    <div class="grid g4" id="lenstiles"></div>
+    <div class="chain">
+      <span class="st">Market and regulation</span><span class="ar">→</span><span class="st">Eight-lens diagnosis</span><span class="ar">→</span><span class="st hl">AS-IS maturity</span><span class="ar">→</span><span class="st hl">TO-BE design</span><span class="ar">→</span><span class="st">Business case</span><span class="ar">→</span><span class="st">Roadmap with gates</span>
+    </div>
+    <div class="card" style="margin-top:26px">
+      <h4>My reference bank, so the numbers have an anchor</h4>
+      <div class="grid g4" style="margin-top:14px;gap:14px">
+        <div><div class="mono" style="font-size:12px;color:var(--ink-3)">Profile</div><div style="margin-top:4px">Euro-area universal bank, 5.5M retail clients, 320k SME and corporate clients</div></div>
+        <div><div class="mono" style="font-size:12px;color:var(--ink-3)">Credit transfers</div><div style="margin-top:4px">About 1.1bn a year, growing 3% annually</div></div>
+        <div><div class="mono" style="font-size:12px;color:var(--ink-3)">Instant share</div><div style="margin-top:4px">26% in 2026, so behind the 35.6% market level. I take it to 64% by 2029</div></div>
+        <div><div class="mono" style="font-size:12px;color:var(--ink-3)">Starting point</div><div style="margin-top:4px">Instant gateway bolted onto a batch-era SCT engine, built to meet the 2025 deadlines</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNOSIS -->
+<section id="diagnosis" class="alt">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="eyebrow">AS-IS diagnosis</div>
+      <h2>Strong on paper, <em>thin underneath.</em></h2>
+      <p class="lead">I scored each lens from 1 (ad hoc) to 5 (intelligent, automated, measured), using the evidence in the right-hand column. The heatmap also shows the maturity I target in each year.</p>
+    </div>
+    <div class="grid" style="grid-template-columns:minmax(0,1.85fr) minmax(0,.75fr);gap:18px;align-items:start" id="diaggrid">
+      <div class="card scroll"><table class="heat" id="heat"></table><div class="legend-scale"><span>1 ad hoc</span><span class="bar"></span><span>5 intelligent</span></div></div>
+      <div class="card"><h4>Today versus 2029 target</h4><svg class="radar" id="radar" viewBox="0 0 560 470" style="width:100%;height:auto;display:block" role="img" aria-label="Radar chart of maturity across eight lenses"></svg>
+        <div class="legend" style="justify-content:center"><span><i style="background:var(--coral)"></i>Today</span><span><i style="background:var(--blue)"></i>2029 target</span></div></div>
+    </div>
+    <div class="take"><div class="av">A</div><div><div class="tk">My verdict</div><p>The bank is strongest where a regulator can check a box, and weakest where the customer and the operations team live every day. That gap is the whole business case.</p></div></div>
+  </div>
+</section>
+
+<style>
+.lb{padding-block:56px;border-top:1px solid var(--line)}
+.lb:first-of-type{border-top:0;padding-top:8px}
+.lb .lh{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.lb h3{font-size:clamp(30px,3.6vw,44px);margin-top:12px;max-width:20em}
+.lb .find{margin-top:14px;font-size:17.5px;color:var(--ink-2);max-width:46em}
+.lb .find b{color:var(--ink)}
+.lb .vis{margin-top:26px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.house{display:grid;gap:10px;margin-top:22px}
+.house .roof{padding:16px 20px;border-radius:12px;background:var(--ink);color:var(--bg);display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;align-items:center}
+.house .roof b{font:italic 24px/1.1 var(--f-display)}
+.house .pill{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.house .pl{border:1px solid color-mix(in srgb,var(--blue) 45%,var(--line));background:var(--blue-soft);border-radius:12px;padding:18px;min-width:0}
+.house .pl h5{margin:0 0 8px;font:600 15px var(--f-body);color:var(--blue)}
+.house .pl p{font-size:14px;color:var(--ink-2)}
+.house .base{padding:14px 20px;border-radius:12px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink-2)}
+.house .base b{color:var(--ink)}
+.princ{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:22px}
+.princ .p{padding:18px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2)}
+.princ .p b{display:block;font:italic 22px/1.15 var(--f-display);margin-bottom:6px}
+.princ .p span{font-size:14px;color:var(--ink-2)}
+@media (max-width:980px){.house .pill,.princ{grid-template-columns:1fr}#diaggrid,#fraudgrid,#cxgrid{grid-template-columns:1fr!important}}
+</style>
+
+<!-- LENSES -->
+<section id="lenses">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="eyebrow">Eight lenses, AS-IS to TO-BE</div>
+      <h2>Where the seconds, the hours and the euros go.</h2>
+      <p class="lead">Each lens gets one finding, one visual, and one design response. I kept the structure identical so the eight can be compared.</p>
+    </div>
+
+    <!-- 1 flows -->
+    <article class="lb" id="l-flows">
+      <div class="lh"><span class="eyebrow">Lens · Payment flows</span><span class="chip bad">Today 2.0 / 5</span><span class="chip info">2029 target 4.5 / 5</span></div>
+      <h3>An instant payment spends its ten seconds in the wrong places.</h3>
+      <p class="find"><b>My finding:</b> fraud and sanctions consume 47% of the budget in my model, while the part I do not control, the settlement round trip, needs only about a second. I rebuilt the flow so the bank's own steps shrink and the margin grows. Click a step to see what changes.</p>
+      <div class="vis">
+        <div class="steps" id="steps"></div>
+        <div class="panel" style="margin-top:14px">
+          <div class="lat" id="lat"></div>
+        </div>
+        <div class="vs" id="stepdetail"></div>
+        <div class="legend" style="margin-top:14px"><span class="mono" style="font-size:12px;color:var(--ink-3)">Message flow I used: pain.001 → pacs.008 → pacs.002 → customer status. Returns and recalls: pacs.004, camt.056. Timings are my modelled p99 values.</span></div>
+      </div>
+    </article>
+
+    <!-- 2 processes -->
+    <article class="lb" id="l-proc">
+      <div class="lh"><span class="eyebrow">Lens · Operational processes</span><span class="chip bad">Today 1.5 / 5</span><span class="chip info">2029 target 4.5 / 5</span></div>
+      <h3>A 24/7 product is run by a 9-to-5 organisation.</h3>
+      <p class="find"><b>My finding:</b> the product never closes, but the people and the playbooks do. I picked one process, investigating a payment the customer cannot find, and counted every step and hand-off. Then I drew the week.</p>
+      <div class="vis grid g2">
+        <div class="panel">
+          <div class="tag a">AS-IS · 14 steps · 5 hand-offs · 3.1 days</div>
+          <div class="pchain" id="procA"></div>
+          <div class="tag t" style="margin-top:26px">TO-BE · 5 steps · 1 hand-off · 90 minutes</div>
+          <div class="pchain" id="procT"></div>
+          <div class="legend"><span><i style="background:var(--coral-soft);border:1px solid var(--coral)"></i>Human hand-off</span><span><i style="background:var(--teal-soft);border:1px solid var(--teal)"></i>Automated</span></div>
+        </div>
+        <div class="panel">
+          <h4>Who is awake? One week, hour by hour</h4>
+          <div class="tag a" style="margin-top:14px">AS-IS</div><div class="cover" id="coverA"></div>
+          <div class="tag t" style="margin-top:20px">TO-BE</div><div class="cover" id="coverT"></div>
+          <div class="legend"><span><i style="background:var(--blue)"></i>Full desk</span><span><i style="background:color-mix(in srgb,var(--blue) 45%,var(--surface))"></i>Lean desk</span><span><i style="background:var(--signal)"></i>On call only</span><span><i style="background:var(--teal-soft)"></i>Automation first line</span></div>
+        </div>
+      </div>
+      <div class="vs">
+        <div class="col"><div class="tag a">AS-IS</div><ul><li>Office-hours teams, <b>weekend coverage by on-call rota</b></li><li>Investigation runs through email between five teams</li><li>No shared definition of a payment's state</li></ul></div>
+        <div class="col to"><div class="tag t">TO-BE</div><ul><li><b>Follow-the-sun desk</b> with a partner hub, automation as first line</li><li>One case, one owner, one timeline from the payment trace</li><li>Runbooks as code, reviewed after every incident</li></ul></div>
+      </div>
+    </article>
+
+    <!-- 3 fraud -->
+    <article class="lb" id="l-fraud">
+      <div class="lh"><span class="eyebrow">Lens · Fraud controls</span><span class="chip bad">Today 2.0 / 5</span><span class="chip info">2029 target 4.5 / 5</span></div>
+      <h3>Irrevocable means the control has to arrive before the money.</h3>
+      <p class="find"><b>My finding:</b> the bank still runs rules per channel with static thresholds, reviewed in office hours. I designed five layers, and I made the third, real-time scoring, answer in about 300 ms so that it never competes with the customer's experience.</p>
+      <div class="vis grid" style="grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px;align-items:start" id="fraudgrid">
+        <div class="panel scroll">
+          <table>
+            <thead><tr><th>Layer</th><th>What I designed</th><th>Latency</th><th>Today</th><th>Live</th></tr></thead>
+            <tbody>
+              <tr><td><b>Payee intelligence</b></td><td>Verification of Payee result, account age, prior reports on the beneficiary</td><td class="num">before the clock</td><td><span class="chip warn">Partial</span></td><td class="num">2027</td></tr>
+              <tr><td><b>Session and device</b></td><td>Device binding, remote-access tool flags, behavioural signals</td><td class="num">~30 ms</td><td><span class="chip bad">None</span></td><td class="num">2027</td></tr>
+              <tr><td><b>Real-time scoring</b></td><td>One decision API for every channel, with network features on mule accounts</td><td class="num">~250 ms</td><td><span class="chip warn">Basic rules</span></td><td class="num">2028</td></tr>
+              <tr><td><b>Adaptive friction</b></td><td>Warning, cooling-off, call-back or hold, chosen by risk band</td><td class="num">customer time</td><td><span class="chip bad">Generic pop-up</span></td><td class="num">2027 pilot</td></tr>
+              <tr><td><b>After the payment</b></td><td>Recall orchestration, mule-account takedown, intelligence sharing</td><td class="num">minutes</td><td><span class="chip bad">Manual</span></td><td class="num">2029</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel">
+          <h4>How my decision layer spreads the traffic</h4>
+          <div class="band"><div style="flex:96.8;background:var(--teal)">96.8%</div><div style="flex:2.9;min-width:34px;background:var(--signal);color:#1a1200">2.9%</div><div style="flex:.3;min-width:8px;background:var(--coral)"></div></div>
+          <div class="legend"><span><i style="background:var(--teal)"></i>Pass, under 120 ms</span><span><i style="background:var(--signal)"></i>Contextual warning</span><span><i style="background:var(--coral)"></i>Hold, 0.3%</span></div>
+          <div style="margin-top:20px">
+            <div class="hbar"><span>Alerts per 1,000, today</span><div class="tr"><i style="width:100%;background:var(--coral)"></i></div><span class="v">18</span></div>
+            <div class="hbar"><span>Alerts per 1,000, 2029</span><div class="tr"><i style="width:22%;background:var(--teal)"></i></div><span class="v">4</span></div>
+            <div class="hbar"><span>Loss, bps, today</span><div class="tr"><i style="width:100%;background:var(--coral)"></i></div><span class="v">1.9</span></div>
+            <div class="hbar"><span>Loss, bps, 2029</span><div class="tr"><i style="width:37%;background:var(--teal)"></i></div><span class="v">0.7</span></div>
+          </div>
+          <p class="mono" style="font-size:11.5px;color:var(--ink-3);margin-top:14px">Band shares and KPIs are my modelling assumptions.</p>
+        </div>
+      </div>
+      <div class="take"><div class="av">A</div><div><div class="tk">My design choice</div><p>I treat friction as a budget. Almost every payment should feel like nothing. The few that deserve a pause get a message that explains why, because a warning people click through protects nobody.</p></div></div>
+    </article>
+
+    <!-- 4 CX -->
+    <article class="lb" id="l-cx">
+      <div class="lh"><span class="eyebrow">Lens · Customer experience</span><span class="chip warn">Today 2.5 / 5</span><span class="chip info">2029 target 4.5 / 5</span></div>
+      <h3>The customer does not measure seconds. They measure certainty.</h3>
+      <p class="find"><b>My finding:</b> the experience is fine until something is pending. The lowest point of the journey is the wait for a result with no estimate and no explanation. I mapped how confident a customer feels at each stage, before and after my redesign.</p>
+      <div class="vis grid" style="grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:18px;align-items:start" id="cxgrid">
+        <div class="panel chartbox"><svg id="cx" viewBox="0 0 760 300" role="img" aria-label="Customer confidence curve across six journey stages, today versus redesigned"></svg>
+          <div class="legend"><span><i style="background:var(--coral)"></i>Today</span><span><i style="background:var(--teal)"></i>My redesign</span><span class="mono" style="font-size:11.5px;color:var(--ink-3)">Confidence score 1 to 5, my journey assessment</span></div></div>
+        <div class="panel">
+          <h4>What I changed</h4>
+          <ul style="margin:12px 0 0;padding-left:18px;display:grid;gap:8px;color:var(--ink-2);font-size:14.5px">
+            <li>The payee check result changes the journey: match, close match, no match</li>
+            <li>Every non-final state shows an estimate and a reason</li>
+            <li>Status events reach the app, the API and corporate host-to-host at the same time</li>
+            <li>Limits, recalls and request-to-pay are self-service</li>
+          </ul>
+          <div class="grid g2" style="margin-top:18px;gap:10px">
+            <div class="card flat" style="padding:14px"><div class="mono" style="font-size:11px;color:var(--ink-3)">p95 time to certainty, today</div><div style="font:italic 34px/1.1 var(--f-display);color:var(--coral)">12 s</div></div>
+            <div class="card flat" style="padding:14px"><div class="mono" style="font-size:11px;color:var(--ink-3)">p95 time to certainty, 2029</div><div style="font:italic 34px/1.1 var(--f-display);color:var(--teal)">3 s</div></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 5 settlement -->
+    <article class="lb" id="l-liq">
+      <div class="lh"><span class="eyebrow">Lens · Settlement and liquidity</span><span class="chip bad">Today 2.0 / 5</span><span class="chip info">2029 target 4.5 / 5</span></div>
+      <h3>Is there liquidity at 03:00 on a Sunday?</h3>
+      <p class="find"><b>My finding:</b> instant payments settle in central bank money around the clock through TIPS, but a bank tops up its liquidity through T2, which follows business-day opening hours. So the weekend buffer has to be sized on Friday. The bank sizes it on a four-week average, and a single Saturday-night spike breaks it.</p>
+      <div class="vis panel chartbox">
+        <svg id="liq" viewBox="0 0 900 340" role="img" aria-label="Cumulative net outflow over a weekend against two liquidity buffers"></svg>
+        <div class="legend"><span><i style="background:var(--ink-2)"></i>Cumulative net outflow (synthetic weekend)</span><span><i style="background:var(--coral)"></i>Buffer sized on an average</span><span><i style="background:var(--teal)"></i>Buffer sized on my P99 forecast</span></div>
+      </div>
+      <div class="vs">
+        <div class="col"><div class="tag a">AS-IS</div><ul><li>Static pre-funding, <b>adjusted by hand on business days</b></li><li>Liquidity tracked in spreadsheets, no event calendar</li><li>Treasury reachable Monday, not at 22:00 Saturday</li></ul></div>
+        <div class="col to"><div class="tag t">TO-BE</div><ul><li>Friday pre-funding sized on a <b>P99 forecast plus an event calendar</b></li><li>Alerts at 70% usage, dynamic limits on low-priority high-value flows</li><li>One liquidity cockpit shared by Treasury and Payments Ops</li></ul></div>
+      </div>
+      <p class="mono" style="font-size:11.5px;color:var(--ink-3);margin-top:12px">Curve is synthetic and normalised to 100 units. I would check the current T2 and TIPS operating calendar before sizing a real buffer.</p>
+    </article>
+
+    <!-- 6 exceptions -->
+    <article class="lb" id="l-exc">
+      <div class="lh"><span class="eyebrow">Lens · Exception management</span><span class="chip bad">Today 1.5 / 5</span><span class="chip info">2029 target 4.5 / 5</span></div>
+      <h3>When the happy path breaks, a person opens a spreadsheet.</h3>
+      <p class="find"><b>My finding:</b> <span class="num">680</span> of every 10,000 instant payments need a human today. With an exception taxonomy and automated triage I take that to <span class="num">60</span>. The biggest wins are in the categories nobody owns, such as timeouts and invalid data.</p>
+      <div class="vis panel" id="exc"></div>
+    </article>
+
+    <!-- 7 compliance -->
+    <article class="lb" id="l-comp">
+      <div class="lh"><span class="eyebrow">Lens · Compliance</span><span class="chip ok">Today 3.0 / 5</span><span class="chip info">2029 target 4.5 / 5</span></div>
+      <h3>Met by effort today, to be met by design tomorrow.</h3>
+      <p class="find"><b>My finding:</b> this is the bank's best lens, and it still depends on people compiling evidence. I moved each obligation from "someone proves it" to "the system proves it".</p>
+      <div class="vis panel scroll">
+        <table>
+          <thead><tr><th>Obligation</th><th>Source</th><th>Today</th><th>My TO-BE design</th><th>By</th></tr></thead>
+          <tbody>
+            <tr><td><b>Send and receive 24/7, funds in 10 s</b></td><td>Instant Payments Regulation</td><td><span class="chip ok">Minimum met</span></td><td>2.5 s p99 design, tracked on a live dashboard</td><td class="num">2026</td></tr>
+            <tr><td><b>Verification of Payee</b></td><td>IPR and EPC VoP scheme (v1.1 live 20 Sep 2026, v2.0 planned Nov 2027)</td><td><span class="chip warn">Partial</span></td><td>Versioned scheme adapter with contract tests</td><td class="num">2027</td></tr>
+            <tr><td><b>Customer sanctions screening, at least daily</b></td><td>IPR</td><td><span class="chip ok">Met, evidence manual</span></td><td>Triggered by every list update, fully auditable</td><td class="num">2026</td></tr>
+            <tr><td><b>Instant no dearer than standard</b></td><td>IPR</td><td><span class="chip ok">Met</span></td><td>Pricing governance inside the product catalogue</td><td class="num">2026</td></tr>
+            <tr><td><b>ICT risk and resilience</b></td><td>DORA</td><td><span class="chip warn">Partial</span></td><td>Active-active gateway, tested exit plans, automatic incident classification</td><td class="num">2028</td></tr>
+            <tr><td><b>AML and terrorist-financing monitoring</b></td><td>EU AML framework</td><td><span class="chip warn">Next-day</span></td><td>Near-real-time monitoring on the event stream</td><td class="num">2028</td></tr>
+            <tr><td><b>Strong customer authentication</b></td><td>PSD2</td><td><span class="chip ok">Met</span></td><td>Risk-based exemptions decided in the single decision layer</td><td class="num">2027</td></tr>
+            <tr><td><b>Behavioural signals as personal data</b></td><td>GDPR</td><td><span class="chip bad">Gap</span></td><td>DPIA, data minimisation, retention rules before launch</td><td class="num">2027</td></tr>
+            <tr><td><b>Fraud liability and spoofing rules</b></td><td>Payment Services Regulation proposals</td><td><span class="chip mute">Watch</span></td><td>Regulatory radar owned by the Transformation Office</td><td class="num">ongoing</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- 8 architecture -->
+    <article class="lb" id="l-arch">
+      <div class="lh"><span class="eyebrow">Lens · Technology architecture</span><span class="chip bad">Today 1.5 / 5</span><span class="chip info">2029 target 4.5 / 5</span></div>
+      <h3>The platform bends at today's volume. It breaks at ten times.</h3>
+      <p class="find"><b>My finding:</b> the gateway is modern, but everything behind it is batch-era. I chose a strangler approach. I do not replace the core in one go. I put an event-driven hub in front of it and move instant payments across first.</p>
+      <div class="vis">
+        <div class="seg" role="group" aria-label="Architecture view"><button id="archA" aria-pressed="true">AS-IS</button><button id="archT" aria-pressed="false">TO-BE</button></div>
+        <div class="layers" id="arch" style="margin-top:16px"></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- LAB -->
+<section id="lab" class="alt">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="eyebrow">Scenario lab</div>
+      <h2>Same payment, <em>two operating models.</em></h2>
+      <p class="lead">I replayed five real-world situations through both stacks. Pick a scenario and compare what happens, step by step. All timings and amounts come from my model.</p>
+    </div>
+    <div class="tabs" id="labtabs" role="tablist" aria-label="Scenarios"></div>
+    <div class="lab" id="labout"></div>
+  </div>
+</section>
+
+<!-- TARGET -->
+<section id="target">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="eyebrow">TO-BE operating model</div>
+      <h2>One platform, one decision layer, <em>one 24/7 desk.</em></h2>
+      <p class="lead">My target model has three pillars on a shared data foundation. The pillars map to the owners of today's silos, so the change is organisational as well as technical.</p>
+    </div>
+    <div class="house">
+      <div class="roof"><b>Customer value</b><span>Instant account-to-account · request-to-pay · instant corporate payouts · real-time status</span></div>
+      <div class="pill">
+        <div class="pl"><h5>Real-time payment platform</h5><p>Event-driven hub, ISO 20022 canonical model, 24/7 ledger service, multi-CSM routing.</p></div>
+        <div class="pl"><h5>Financial-crime fusion cell</h5><p>Fraud, sanctions and AML on one decision API and one case tool, staffed together.</p></div>
+        <div class="pl"><h5>24/7 operations and liquidity</h5><p>Follow-the-sun desk, exception workbench, liquidity cockpit shared with Treasury.</p></div>
+      </div>
+      <div class="base"><b>Data and AI foundation.</b> Payment events, feature store, MLOps with drift monitoring, model risk governance.</div>
+      <div class="base"><b>Governance.</b> Payments Transformation Office · DORA resilience testing · model risk committee · phase gates.</div>
+    </div>
+    <div class="princ">
+      <div class="p"><b>Real-time by default</b><span>No batch step may sit in the instant path.</span></div>
+      <div class="p"><b>One decision layer</b><span>Fraud, VoP outcome, limits and sanctions status answer through one API.</span></div>
+      <div class="p"><b>ISO 20022 native</b><span>One canonical model, mapped once at the edge.</span></div>
+      <div class="p"><b>Automation before headcount</b><span>I add people only for judgement, never for volume.</span></div>
+      <div class="p"><b>Observable by design</b><span>Every payment carries one trace ID from channel to settlement.</span></div>
+      <div class="p"><b>Human in the loop for judgement</b><span>Models propose, named people sign off on holds and recalls.</span></div>
+    </div>
+    <div class="card scroll" style="margin-top:26px;padding:8px 8px">
+      <table>
+        <thead><tr><th>Lens</th><th>From (AS-IS)</th><th>To (TO-BE)</th></tr></thead>
+        <tbody id="fromto"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap" class="alt">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="eyebrow">Roadmap 2026 to 2029</div>
+      <h2>Four phases. <em>Each one earns the next.</em></h2>
+      <p class="lead">I sequenced the work so that every phase ends with a gate, a set of KPIs and a decision. Select a phase to see my objective, the deliverables across eight workstreams, and what must be true to move on.</p>
+    </div>
+    <div class="phases" id="phases" role="tablist" aria-label="Roadmap phases"></div>
+    <div class="phpanel" id="phpanel"></div>
+    <h3 style="margin-top:46px">All workstreams on one page</h3>
+    <div class="card scroll" style="margin-top:16px;padding:8px"><table class="matrix" id="matrix"></table></div>
+  </div>
+</section>
+
+<!-- BUSINESS CASE -->
+<section id="case">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="eyebrow">KPIs and business case</div>
+      <h2>What I would measure, <em>and what it pays back.</em></h2>
+      <p class="lead">The KPI ladder is what the phase gates check. The business case below is a model I built on stated assumptions. Move the sliders to stress it.</p>
+    </div>
+    <div class="card scroll" style="padding:8px"><table id="kpitable"></table></div>
+    <div class="sand">
+      <div class="card ctl">
+        <h4>Stress-test my case</h4>
+        <div><label for="sShare">Instant share of transfers in 2029 <output id="oShare">64%</output></label><input type="range" id="sShare" min="45" max="80" step="1" value="64"></div>
+        <div><label for="sAuto">Automation benefits realised <output id="oAuto">100%</output></label><input type="range" id="sAuto" min="40" max="130" step="5" value="100"></div>
+        <div><label for="sCost">Programme cost overrun <output id="oCost">0%</output></label><input type="range" id="sCost" min="0" max="50" step="5" value="0"></div>
+        <p class="mono" style="font-size:11.5px;color:var(--ink-3)">Base case: €48M of cost over four years, €22M annual run-rate benefit in 2029. All figures are my assumptions, in € millions.</p>
+      </div>
+      <div class="card">
+        <div class="res"><div><div class="n" id="rPay">2030</div><div class="l">Cumulative payback year</div></div><div><div class="n" id="rNpv">+40</div><div class="l">Cumulative net by 2031, €M</div></div><div><div class="n" id="rRun">22</div><div class="l">Run-rate benefit 2029, €M</div></div></div>
+        <div class="chartbox" style="margin-top:14px"><svg id="bc" viewBox="0 0 700 320" role="img" aria-label="Costs, benefits and cumulative net by year"></svg></div>
+        <div class="legend"><span><i style="background:var(--coral)"></i>Programme cost</span><span><i style="background:var(--teal)"></i>Benefit</span><span><i style="background:var(--ink)"></i>Cumulative net</span></div>
+      </div>
+    </div>
+    <div class="grid g3" style="margin-top:18px">
+      <div class="card"><h4>Operating savings</h4><div style="font:italic 40px/1.1 var(--f-display);margin-top:6px">€11M</div><p style="font-size:14px;color:var(--ink-2);margin-top:6px">Fewer manual touches, fewer investigations, smaller reconciliation effort, by 2029.</p></div>
+      <div class="card"><h4>Fraud losses avoided</h4><div style="font:italic 40px/1.1 var(--f-display);margin-top:6px">€6M</div><p style="font-size:14px;color:var(--ink-2);margin-top:6px">From 1.9 to 0.7 bps of instant volume, plus fewer false alerts to review.</p></div>
+      <div class="card"><h4>Growth and retention</h4><div style="font:italic 40px/1.1 var(--f-display);margin-top:6px">€5M</div><p style="font-size:14px;color:var(--ink-2);margin-top:6px">Instant-enabled SME services and request-to-pay, the least certain line in my model.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BA TOOLKIT -->
+<section id="ba" class="alt">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="eyebrow">Business analysis toolkit</div>
+      <h2>Who it affects, <em>and what I would ask for.</em></h2>
+      <p class="lead">This is the part of the work where I turn a strategy into something a delivery team can build and a steering committee can approve.</p>
+    </div>
+    <div class="grid g2" style="align-items:start">
+      <div class="card">
+        <h4>Stakeholder map I would use</h4>
+        <div class="quad" style="margin-top:14px">
+          <div class="q"><h5>Keep satisfied</h5><div class="chips"><span class="chip mute">CFO</span><span class="chip mute">Board risk committee</span></div></div>
+          <div class="q hi"><h5>Manage closely</h5><div class="chips"><span class="chip info">Head of Payments (sponsor)</span><span class="chip info">COO</span><span class="chip info">CRO and financial crime</span><span class="chip info">CTO</span><span class="chip info">Supervisor</span></div></div>
+          <div class="q"><h5>Monitor</h5><div class="chips"><span class="chip mute">CSM operators</span><span class="chip mute">EPC and industry bodies</span><span class="chip mute">Vendors</span></div></div>
+          <div class="q"><h5>Keep informed</h5><div class="chips"><span class="chip mute">Treasury</span><span class="chip mute">Retail and SME product owners</span><span class="chip mute">Customer service</span><span class="chip mute">Payments Ops</span><span class="chip mute">Customers</span></div></div>
+          <span class="ax y">Power →</span><span class="ax x">Interest →</span>
+        </div>
+      </div>
+      <div class="card scroll">
+        <h4>Business requirements I would write first</h4>
+        <table style="margin-top:8px">
+          <thead><tr><th>ID</th><th>Requirement</th><th>Lens</th><th>Priority</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">BR-01</td><td>99% of instant payments complete in under 3 s end to end, p99 at 2.5 s by 2029</td><td>Flows</td><td><span class="chip bad">Must</span></td></tr>
+            <tr><td class="mono">BR-02</td><td>One real-time decision API for fraud, payee-check outcome and limits across every channel</td><td>Fraud</td><td><span class="chip bad">Must</span></td></tr>
+            <tr><td class="mono">BR-03</td><td>24/7 liquidity view with P99 weekend forecast and alert at 70% usage</td><td>Liquidity</td><td><span class="chip bad">Must</span></td></tr>
+            <tr><td class="mono">BR-04</td><td>Every payment traceable with one ID across channel, hub and CSM by end 2026</td><td>Architecture</td><td><span class="chip bad">Must</span></td></tr>
+            <tr><td class="mono">BR-05</td><td>Automated triage for at least 90% of exception types by 2028</td><td>Exceptions</td><td><span class="chip warn">Should</span></td></tr>
+            <tr><td class="mono">BR-06</td><td>Evidence packs for IPR, VoP and DORA generated from logs, not compiled by hand</td><td>Compliance</td><td><span class="chip warn">Should</span></td></tr>
+            <tr><td class="mono">BR-07</td><td>Every non-final state shows an estimate and a reason in app and API</td><td>CX</td><td><span class="chip bad">Must</span></td></tr>
+            <tr><td class="mono">BR-08</td><td>Adaptive friction pilot with an abandonment guardrail of 2%</td><td>Fraud, CX</td><td><span class="chip mute">Could</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <h3 style="margin-top:46px">Four people I designed for</h3>
+    <div class="grid g4" style="margin-top:18px">
+      <div class="card persona"><h3>Léa</h3><div class="role">Freelance designer, 29</div><dl><dt>Needs</dt><dd>To pay and be paid at any hour, and to know it landed</dd><dt>Hurts today</dt><dd>"Pending" status before an invoice deadline</dd><dt>What I designed</dt><dd class="me">Real-time status with an estimate, request-to-pay</dd></dl></div>
+      <div class="card persona"><h3>Marc</h3><div class="role">Retiree, 67</div><dl><dt>Needs</dt><dd>Safety without a lecture</dd><dt>Hurts today</dt><dd>Targeted by impersonation scams, warnings ignored</dd><dt>What I designed</dt><dd class="me">Payee check, adaptive friction, call-back option</dd></dl></div>
+      <div class="card persona"><h3>Nadia</h3><div class="role">Payments operations team lead</div><dl><dt>Needs</dt><dd>One queue and one truth for each payment</dd><dt>Hurts today</dt><dd>Email chains and 14-step investigations</dd><dt>What I designed</dt><dd class="me">Exception workbench with automatic triage</dd></dl></div>
+      <div class="card persona"><h3>Tom</h3><div class="role">Treasury analyst</div><dl><dt>Needs</dt><dd>To know the weekend position before Friday closes</dd><dt>Hurts today</dt><dd>Spreadsheet guesswork, no event calendar</dd><dt>What I designed</dt><dd class="me">Liquidity cockpit with P99 forecast and alerts</dd></dl></div>
+    </div>
+    <p class="mono" style="font-size:11.5px;color:var(--ink-3);margin-top:12px">Personas are fictional composites I wrote for this case study.</p>
+  </div>
+</section>
+
+<!-- RISKS -->
+<section id="risks">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="eyebrow">Risks</div>
+      <h2>What could go wrong, <em>and what I would do about it.</em></h2>
+    </div>
+    <div class="card scroll" style="padding:8px">
+      <table>
+        <thead><tr><th>Risk</th><th>Likelihood</th><th>Impact</th><th>My mitigation</th></tr></thead>
+        <tbody id="risktable"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section id="sources" class="alt">
+  <div class="wrap">
+    <div class="grid g2" style="align-items:start">
+      <div>
+        <div class="eyebrow">What I take from this</div>
+        <h2 style="font-size:clamp(30px,3.8vw,46px)">Three things I learned building it.</h2>
+        <ul style="padding-left:18px;margin:22px 0 0;display:grid;gap:14px;color:var(--ink-2);font-size:16.5px">
+          <li>Regulation sets the minimum. <b style="color:var(--ink)">The operating model sets the margin.</b></li>
+          <li>The seams between teams cost more than any single system, so I designed around <b style="color:var(--ink)">one decision layer and one desk</b>.</li>
+          <li>A good roadmap is a series of <b style="color:var(--ink)">decisions that stay reversible</b> until the evidence arrives.</li>
+        </ul>
+        <div class="take"><div class="av">A</div><div><div class="tk">What I would do next with real data</div><p>I would mine real exception logs to replace my taxonomy shares, calibrate latency on production traces, and rebuild the liquidity curve from actual weekend flows.</p></div></div>
+      </div>
+      <div class="card">
+        <h4>Method, assumptions and sources</h4>
+        <p style="margin-top:12px;font-size:14.5px;color:var(--ink-2)">This is a personal portfolio case study, not a client engagement. The reference bank, its volumes, latencies, KPIs, costs and benefits are assumptions I set to make the reasoning concrete. Market and regulatory facts below come from public sources. Dates for non-euro Member States and for DORA come from my own reading and should be re-checked before anyone relies on them.</p>
+        <ul class="src-list">
+          <li><a href="https://www.ecb.europa.eu/paym/groups/shared/docs/07bd9-ami-pay-2026-05-05-4.-epc-update-on-payment-schemes-and-vop-deployment.pdf" target="_blank" rel="noopener">EPC update on payment schemes and VoP deployment, ECB AMI-Pay, 5 May 2026</a>: SCT Inst share, 2025 volumes, PSP adoption, VoP v1.1 and v2.0 dates.</li>
+          <li><a href="https://dnb.nl/en/sector-news/supervision-2025/instant-payments-regulation-new-obligations" target="_blank" rel="noopener">DNB, Instant Payments Regulation: new obligations</a>: receive, send, VoP, screening and 10-second requirements, with deadlines.</li>
+          <li><a href="https://www.ecb.europa.eu/paym/retail/instant_payments" target="_blank" rel="noopener">ECB, Instant payments</a>: TIPS, SCT Inst availability 24/7/365, T2.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="big">Aishwarya</div>
+    <p style="margin-top:6px">Portfolio project 05 · European Payments Transformation · Paris, October 2026</p>
+    <p style="margin-top:14px;max-width:46em">Business analysis, process design and strategy for payments and financial services. Everything on this page was written, modelled and designed by me.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const root=document.documentElement;
+
+/* theme */
+try{const t=localStorage.getItem('pay-theme'); if(t) root.setAttribute('data-theme',t);}catch(e){}
+$('#themeBtn').addEventListener('click',()=>{
+  const cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+  const nxt=cur==='dark'?'light':'dark'; root.setAttribute('data-theme',nxt);
+  try{localStorage.setItem('pay-theme',nxt);}catch(e){}
+});
+
+/* hero ticks */
+(function(){let g='';for(let i=0;i<10;i++){const a=(-90+36*i)*Math.PI/180,c=Math.cos(a),s=Math.sin(a);
+  g+=`<line x1="${240+206*c}" y1="${240+206*s}" x2="${240+216*c}" y2="${240+216*s}" stroke="#4B6592" stroke-width="2"/><text x="${240+230*c}" y="${240+230*s+4}" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#7D93B8">${i===0?'10':i}</text>`;}
+  $('#ticks').innerHTML=g;})();
+
+/* timeline */
+const TL=[
+ {w:'8 Apr 2024',h:'Instant Payments Regulation enters into force',p:'The rulebook for euro instant payments in the EU is set.',s:'done'},
+ {w:'Jan 2025',h:'Receive instant payments, screen customers daily',p:'Euro-area PSPs must be able to receive from 9 January. DORA also starts to apply, on 17 January.',s:'done'},
+ {w:'9 Oct 2025',h:'Send instant payments and verify the payee',p:'The second euro-area deadline. This is where my reference bank leaned on a bolt-on gateway.',s:'done'},
+ {w:'20 Sep 2026',h:'EPC Verification of Payee scheme v1.1 goes live',p:'Errata and clarifications. It tells me the bank needs a versioned scheme adapter, not a one-off build.',s:'done'},
+ {w:'Today, 8 Oct 2026',h:'Where my case study starts',p:'Minimum compliance met, 26% instant share, operating model still batch-era.',s:'now',chip:'You are here'},
+ {w:'2027',h:'Non-euro Member States and non-bank PSPs join',p:'Non-bank PSPs must send and receive from 9 April 2027. New competitors arrive on the same rails.',s:'next'},
+ {w:'Nov 2027',h:'EPC Verification of Payee v2.0 planned go-live',p:'Publication is planned for November 2026. I plan the adapter work into my 2027 phase.',s:'next'}];
+$('#timeline').innerHTML=TL.map(t=>`<div class="row ${t.s}"><div class="when">${t.w}</div><div class="pt"></div><div><h5>${t.h}${t.chip?`<span class="chip warn">${t.chip}</span>`:''}</h5><p>${t.p}</p></div></div>`).join('');
+
+/* lens tiles */
+const LENS=[['Payment flows','Where does a payment spend its ten seconds?','l-flows'],['Operational processes','Who touches it, when, and why?','l-proc'],['Fraud controls','Can I stop a bad payment in 300 ms without blocking a good one?','l-fraud'],['Customer experience','How long until the customer is certain?','l-cx'],['Settlement and liquidity','Is there liquidity at 03:00 on a Sunday?','l-liq'],['Exception management','What happens when the happy path breaks?','l-exc'],['Compliance','Which obligations are met by design, and which by effort?','l-comp'],['Technology architecture','Does the platform bend or break at ten times the volume?','l-arch']];
+$('#lenstiles').innerHTML=LENS.map(l=>`<a class="card lens lift" href="#${l[2]}" style="text-decoration:none;color:inherit"><div class="t">${l[0]}</div><div class="qn">${l[1]}</div></a>`).join('');
+
+/* heatmap + radar */
+const MAT=[
+ ['Payment flows',2.0,3.0,4.0,4.5,'Instant gateway feeds a SCT engine built for batch, with three channel-specific paths.'],
+ ['Operational processes',1.5,2.5,3.5,4.5,'Office-hours teams, weekend on-call rota, a 14-step investigation.'],
+ ['Fraud controls',2.0,3.0,4.0,4.5,'Rules per channel, static thresholds, alerts reviewed in office hours.'],
+ ['Customer experience',2.5,3.5,4.0,4.5,'Notifications are instant, but pending states give no estimate.'],
+ ['Settlement and liquidity',2.0,3.0,3.5,4.5,'Static buffers, manual top-ups, no event calendar.'],
+ ['Exception management',1.5,2.5,4.0,4.5,'Email and spreadsheet queues, no root-cause taxonomy.'],
+ ['Compliance',3.0,3.5,4.0,4.5,'IPR minimums met, evidence compiled by hand.'],
+ ['Technology architecture',1.5,2.5,3.5,4.5,'Shadow ledger syncs every five minutes, core not 24/7, little tracing.']];
+const hc=v=>{const p=v<=3?(v-1)/2:(v-3)/2;const base=v<=3?`color-mix(in srgb,var(--coral) ${Math.round((1-p)*100)}%,var(--signal))`:`color-mix(in srgb,var(--signal) ${Math.round((1-p)*100)}%,var(--teal))`;return `color-mix(in srgb,${base} 40%,var(--surface))`;};
+const avg=i=>MAT.reduce((a,r)=>a+r[i],0)/MAT.length;
+$('#heat').innerHTML=`<thead><tr><th>Lens</th><th>Today</th><th>End 2027</th><th>End 2028</th><th>End 2029</th><th>Evidence I used</th></tr></thead><tbody>`+
+ MAT.map(r=>`<tr><td><b>${r[0]}</b></td>${[1,2,3,4].map(i=>`<td class="v num" style="background:${hc(r[i])}">${r[i].toFixed(1)}</td>`).join('')}<td class="ev">${r[5]}</td></tr>`).join('')+
+ `<tr><td><b>Average</b></td>${[1,2,3,4].map(i=>`<td class="v num" style="background:${hc(avg(i))};font-weight:600">${avg(i).toFixed(1)}</td>`).join('')}<td class="ev"></td></tr></tbody>`;
+(function(){
+  const cx=280,cy=235,R=150,n=8,lab=['Payment flows','Processes','Fraud controls','Customer exp.','Settlement','Exceptions','Compliance','Architecture'];
+  const P=(i,v)=>{const a=(-90+360/n*i)*Math.PI/180;return [cx+R*v/5*Math.cos(a),cy+R*v/5*Math.sin(a)];};
+  let s='';
+  for(let r=1;r<=5;r++){s+=`<polygon points="${[...Array(n).keys()].map(i=>P(i,r).join(',')).join(' ')}" fill="none" stroke="var(--line)" stroke-width="1"/>`;}
+  for(let i=0;i<n;i++){const e=P(i,5);s+=`<line x1="${cx}" y1="${cy}" x2="${e[0]}" y2="${e[1]}" stroke="var(--line)"/>`;
+    const a=(-90+360/n*i)*Math.PI/180,c=Math.cos(a),sn=Math.sin(a),x=cx+(R+16)*c,y=cy+(R+16)*sn+4;
+    s+=`<text x="${x}" y="${y}" text-anchor="${c>0.3?'start':c<-0.3?'end':'middle'}">${lab[i]}</text>`;}
+  for(let r=1;r<=5;r++){s+=`<text x="${cx+4}" y="${cy-R*r/5+10}" style="font-size:9.5px;fill:var(--ink-3)">${r}</text>`;}
+  const poly=(idx,col)=>`<polygon points="${MAT.map((m,i)=>P(i,m[idx]).join(',')).join(' ')}" fill="${col}" fill-opacity=".16" stroke="${col}" stroke-width="2.2" stroke-linejoin="round"/>`+MAT.map((m,i)=>{const p=P(i,m[idx]);return `<circle cx="${p[0]}" cy="${p[1]}" r="3.6" fill="${col}"/>`}).join('');
+  s+=poly(4,'var(--blue)')+poly(1,'var(--coral)');
+  $('#radar').innerHTML=s;
+})();
+
+/* flows: steps + latency */
+const SEG=[['Validate and enrich',900,180],['Fraud decision',2400,320],['Sanctions and AML checks',1900,150],['Funds and posting',1700,250],['Settlement round trip',1300,1150],['Confirm and notify',900,450]];
+const STEPS=[
+ {k:'Before the clock',t:'Initiate, authenticate, check the payee',seg:null,
+  a:'The payee name check is an optional screen. When the name does not match, customers tap through it, and nothing downstream learns that it happened.',
+  b:'The payee check drives the journey: match, close match or no match each get a different path. The outcome and the payee\'s risk history feed the risk score.'},
+ {k:'Step 1',t:'Validate and enrich',seg:0,
+  a:'Three channel-specific mappers convert to ISO 20022. Enrichment calls legacy reference data, so the step costs 900 ms.',
+  b:'One canonical ISO 20022 model, mapped once at the edge. Reference data is cached and updated by events: 180 ms.'},
+ {k:'Step 2',t:'Fraud decision',seg:1,
+  a:'Static rules per channel behind a queue that adds seconds under load. 2,400 ms at p99, and a review queue only worked in office hours.',
+  b:'One decision API scores device, behaviour, payee and network features in about 300 ms, then picks a friction level: 320 ms at p99.'},
+ {k:'Step 3',t:'Sanctions and AML checks',seg:2,
+  a:'Every payment is screened against the full list by a batch-era engine, with many false hits on common names: 1,900 ms.',
+  b:'Under the IPR, PSPs verify their customers against restrictive-measure lists at least once per calendar day, in place of screening each instant payment. I use that to take sanctions out of the critical path and keep a light check for edge cases: 150 ms.'},
+ {k:'Step 4',t:'Funds and posting',seg:3,
+  a:'The core is not 24/7, so a shadow ledger syncs every five minutes. Customer retries can double-reserve funds: 1,700 ms.',
+  b:'Real-time reservation in a 24/7 ledger service, with the core reconciled by events and every reservation idempotent: 250 ms.'},
+ {k:'Step 5',t:'Settlement round trip',seg:4,
+  a:'One connection to the CSM, manual fail-over procedure. The round trip itself takes about 1.3 s.',
+  b:'TIPS plus a second CSM behind a routing layer with automatic fail-over, and timeouts handled by scheme rules: 1,150 ms. This is the part the bank controls least, so it is the part I protect with a resilient design.'},
+ {k:'Step 6',t:'Confirm and notify',seg:5,
+  a:'The customer sees "pending" until a status refresh. Corporate clients wait for a file: 900 ms plus the refresh.',
+  b:'Status events push to the app, the API and corporate host-to-host at the same moment: 450 ms.'}];
+let curStep=1;
+function renderSteps(){
+  $('#steps').innerHTML=STEPS.map((s,i)=>`<button class="stepbtn" data-i="${i}" aria-pressed="${i===curStep}"><small>${s.k}</small><span>${s.t}</span><div class="sw ${s.seg!=null?'s'+(s.seg+1):''}" style="${s.seg==null?'background:var(--line)':''}"></div></button>`).join('');
+  $$('.stepbtn').forEach(b=>b.addEventListener('click',()=>{curStep=+b.dataset.i;renderSteps();}));
+  const s=STEPS[curStep],sel=s.seg;
+  const row=(name,idx,tot)=>`<div class="latrow"><div class="nm">${name}</div><div class="latbar${sel!=null?' dim':''}">${SEG.map((g,i)=>`<div class="s${i+1}${sel===i?' on':''}" style="width:${g[idx]/100}%" title="${g[0]}: ${g[idx]} ms">${g[idx]>=300?g[idx]:''}</div>`).join('')}</div><div class="tot">${tot}</div></div>`;
+  let ax='<div class="axis"><div></div><div class="ticks">';for(let i=0;i<=10;i++)ax+=`<i style="left:${i*10}%"></i><span style="left:${i*10}%">${i===10?'10 s limit':i}</span>`;ax+='</div><div></div></div>';
+  $('#lat').innerHTML=row('Bolt-on today',1,'9.1 s')+row('My target design',2,'2.5 s')+ax+
+   `<div class="legend">${SEG.map((g,i)=>`<span><i class="s${i+1}"></i>${g[0]}</span>`).join('')}</div>`;
+  $('#stepdetail').innerHTML=`<div class="col"><div class="tag a">AS-IS · ${s.t}${s.seg!=null?' · '+SEG[s.seg][1].toLocaleString('en-GB')+' ms':''}</div><p style="margin-top:10px;color:var(--ink-2)">${s.a}</p></div><div class="col to"><div class="tag t">TO-BE · ${s.t}${s.seg!=null?' · '+SEG[s.seg][2].toLocaleString('en-GB')+' ms':''}</div><p style="margin-top:10px;color:var(--ink-2)">${s.b}</p></div>`;
+}
+renderSteps();
+
+/* processes + coverage */
+const PA=[['Customer calls',''],['Agent logs ticket',''],['Agent emails Payments Ops','h'],['Ops searches three systems',''],['Ops emails CSM contact','h'],['Wait for reply',''],['Ops emails beneficiary bank','h'],['Wait for reply',''],['Ops checks fraud queue',''],['Fraud analyst reviews','h'],['Ops reconciles ledgers',''],['Ops drafts an answer',''],['Agent calls customer back','h'],['Case closed','']];
+const PT=[['Customer sees live status in app','a'],['Trace ID shows the full path','a'],['Automation queries the CSM and updates the state','a'],['Auto-resolved, or one named owner','h'],['Customer notified in app','a']];
+const chain=(arr)=>arr.map((p,i)=>`${i?'<span class="arr">→</span>':''}<span class="pn ${p[1]}">${p[0]}</span>`).join('');
+$('#procA').innerHTML=chain(PA);$('#procT').innerHTML=chain(PT);
+const DAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+function cover(fn){let s='<div></div>'+[...Array(24).keys()].map(h=>`<div class="hh">${h%6===0?h:''}</div>`).join('');
+  DAYS.forEach((d,di)=>{s+=`<div class="d">${d}</div>`;for(let h=0;h<24;h++)s+=`<div class="c ${fn(di,h)}" title="${d} ${h}:00"></div>`;});return s;}
+$('#coverA').innerHTML=cover((d,h)=>{const wk=d<5;if(wk&&h>=8&&h<18)return 'full';if(wk&&((h>=6&&h<8)||(h>=18&&h<22)))return 'call';if(!wk&&h>=8&&h<20)return 'call';return '';});
+$('#coverT').innerHTML=cover((d,h)=>{const wk=d<5;if(wk&&h>=7&&h<18)return 'full';if(!wk&&h>=9&&h<17)return 'full';return 'lean';});
+
+/* CX curve */
+(function(){
+  const st=['Initiate','Check payee','Confirm','Wait for result','Proof of payment','Aftercare'],A=[3.8,2.6,3.0,1.8,2.4,1.9],T=[4.2,4.0,4.3,4.7,4.8,4.5];
+  const X=i=>70+i*132,Y=v=>250-(v-1)*51;
+  const sm=p=>{let d=`M${p[0][0]},${p[0][1]}`;for(let i=0;i<p.length-1;i++){const p0=p[i-1]||p[i],p1=p[i],p2=p[i+1],p3=p[i+2]||p2;d+=` C${p1[0]+(p2[0]-p0[0])/6},${p1[1]+(p2[1]-p0[1])/6} ${p2[0]-(p3[0]-p1[0])/6},${p2[1]-(p3[1]-p1[1])/6} ${p2[0]},${p2[1]}`;}return d;};
+  let s='';
+  for(let v=1;v<=5;v++){s+=`<line x1="50" x2="740" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)" ${v===1?'':'stroke-dasharray="3 5"'}/><text x="38" y="${Y(v)+4}" text-anchor="end">${v}</text>`;}
+  st.forEach((n,i)=>{s+=`<text x="${X(i)}" y="284" text-anchor="middle">${n}</text>`;});
+  const pa=A.map((v,i)=>[X(i),Y(v)]),pt=T.map((v,i)=>[X(i),Y(v)]);
+  const area=(p,c)=>`<path d="${sm(p)} L${p[p.length-1][0]},${Y(1)} L${p[0][0]},${Y(1)} Z" fill="${c}" fill-opacity=".07"/>`;
+  s+=area(pa,'var(--coral)')+area(pt,'var(--teal)');
+  s+=`<path d="${sm(pa)}" fill="none" stroke="var(--coral)" stroke-width="3" stroke-linecap="round"/><path d="${sm(pt)}" fill="none" stroke="var(--teal)" stroke-width="3" stroke-linecap="round"/>`;
+  pa.forEach(p=>s+=`<circle cx="${p[0]}" cy="${p[1]}" r="4.5" fill="var(--surface)" stroke="var(--coral)" stroke-width="2.5"/>`);
+  pt.forEach(p=>s+=`<circle cx="${p[0]}" cy="${p[1]}" r="4.5" fill="var(--surface)" stroke="var(--teal)" stroke-width="2.5"/>`);
+  s+=`<text class="lab" x="${X(3)}" y="${Y(1.8)+26}" text-anchor="middle">My lowest point: waiting with no estimate</text>`;
+  s+=`<text class="lab" x="${X(4)}" y="${Y(4.8)-14}" text-anchor="middle">Proof in the app within seconds</text>`;
+  $('#cx').innerHTML=s;
+})();
+
+/* liquidity */
+(function(){
+  const N=63,raw=[];
+  for(let t=0;t<N;t++){const abs=18+t,hod=abs%24,day=Math.floor(abs/24);
+    const g=.25+.55*Math.exp(-Math.pow(hod-12,2)/18)+.7*Math.exp(-Math.pow(hod-20,2)/10);
+    raw.push(g*[1,1.1,.9,1][day]+1.5*Math.exp(-Math.pow(t-28,2)/6));}
+  let c=0;const cum=raw.map(v=>c+=v);const k=100/cum[N-1];const C=cum.map(v=>v*k);
+  const X=t=>60+t/(N-1)*810,Y=v=>290-v/125*270,BA=58,BT=112;
+  const lab=t=>{const abs=18+t;return ['Fri','Sat','Sun','Mon'][Math.floor(abs/24)]+' '+String(abs%24).padStart(2,'0')+':00';};
+  let s='';
+  [0,25,50,75,100,125].forEach(v=>{s+=`<line x1="60" x2="870" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)" ${v?'stroke-dasharray="3 5"':''}/><text x="52" y="${Y(v)+4}" text-anchor="end">${v}</text>`;});
+  [0,18,30,42,54,62].forEach(t=>{s+=`<line x1="${X(t)}" x2="${X(t)}" y1="290" y2="296" stroke="var(--ink-3)"/><text x="${X(t)}" y="314" text-anchor="${t===0?'start':t===62?'end':'middle'}">${lab(t)}</text>`;});
+  let ix=C.findIndex(v=>v>=BA);
+  const line=C.map((v,i)=>`${X(i)},${Y(v)}`).join(' ');
+  if(ix>=0){const zone=[`${X(ix)},${Y(BA)}`,...C.slice(ix).map((v,j)=>`${X(ix+j)},${Y(v)}`),`${X(N-1)},${Y(BA)}`].join(' ');s+=`<polygon points="${zone}" fill="var(--coral)" fill-opacity=".22"/>`;}
+  s+=`<polygon points="60,${Y(0)} ${line} ${X(N-1)},${Y(0)}" fill="var(--ink-2)" fill-opacity=".08"/>`;
+  s+=`<polyline points="${line}" fill="none" stroke="var(--ink-2)" stroke-width="2.6" stroke-linejoin="round"/>`;
+  s+=`<line x1="60" x2="870" y1="${Y(BA)}" y2="${Y(BA)}" stroke="var(--coral)" stroke-width="2" stroke-dasharray="7 5"/><text class="lab" x="66" y="${Y(BA)+16}" fill="var(--coral)" style="fill:var(--coral)">Average-based buffer</text>`;
+  s+=`<line x1="60" x2="870" y1="${Y(BT)}" y2="${Y(BT)}" stroke="var(--teal)" stroke-width="2"/><text class="lab" x="66" y="${Y(BT)-8}" style="fill:var(--teal)">P99-based buffer, 12% headroom</text>`;
+  if(ix>=0){s+=`<circle cx="${X(ix)}" cy="${Y(BA)}" r="6" fill="var(--coral)" stroke="var(--surface)" stroke-width="2"/><text class="lab" x="${X(ix)-10}" y="${Y(BA)-14}" text-anchor="end" style="fill:var(--coral)">Buffer exhausted ${lab(ix)}</text>`;
+    s+=`<text class="lab" x="${X(Math.min(N-8,ix+(N-ix)/2))}" y="${Y(BA)-26}" text-anchor="middle" style="fill:var(--coral)">About ${N-1-ix} hours of rejected payments</text>`;}
+  s+=`<text x="870" y="${Y(100)-8}" text-anchor="end">T2 reopens Monday, Treasury tops up</text>`;
+  $('#liq').innerHTML=s;
+})();
+
+/* exceptions */
+(function(){
+  const D=[['Invalid or incomplete data',28,85],['Timeouts and connectivity',17,92],['Fraud and sanctions holds',24,55],['Beneficiary account issues',11,70],['Recalls and returns',12,78],['Investigations and disputes',8,40]];
+  const f=(n,t,l,c)=>`<div style="padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2);min-width:0"><div style="font:italic 46px/1 var(--f-display);color:${c}">${n}</div><div style="font-size:13.5px;color:var(--ink-2);margin-top:6px">${l}</div></div>`;
+  $('#exc').innerHTML=`<h4>Out of every 10,000 instant payments</h4>
+   <div class="grid g3" style="margin-top:14px">${f(680,0,'need a human today, all of them handled manually','var(--coral)')}${f(220,0,'remain once I fix root causes at source: better validation, fewer false holds','var(--blue)')}${f(60,0,'are left for people after 73% of those are triaged and resolved automatically','var(--teal)')}</div>
+   <h4 style="margin-top:28px">Exception taxonomy I built, and what I automate</h4>
+   <div style="margin-top:8px">${D.map(d=>`<div class="hbar" style="grid-template-columns:minmax(120px,210px) 1fr 1fr;"><span>${d[0]}</span><div style="display:grid;grid-template-columns:1fr 46px;gap:8px;align-items:center"><div class="tr"><i style="width:${d[1]*3}%;background:var(--slate)"></i></div><span class="v">${d[1]}%</span></div><div style="display:grid;grid-template-columns:1fr 46px;gap:8px;align-items:center"><div class="tr"><i style="width:${d[2]}%;background:var(--teal)"></i></div><span class="v">${d[2]}%</span></div></div>`).join('')}
+   <div class="hbar" style="grid-template-columns:minmax(120px,210px) 1fr 1fr;margin-top:4px"><span></span><span class="mono" style="font-size:11px;color:var(--ink-3)">Share of all exceptions</span><span class="mono" style="font-size:11px;color:var(--ink-3)">Auto-resolved by 2029</span></div></div>
+   <p class="mono" style="font-size:11.5px;color:var(--ink-3);margin-top:12px">Taxonomy shares and automation rates are my modelling assumptions.</p>`;
+})();
+
+/* architecture */
+const ARCH=[
+ ['Channels and APIs','what customers touch',['Mobile app','Web banking','Corporate host-to-host',['Three channel-specific mappers','w']],['Unified payment API','Event notifications','ISO 20022 corporate API']],
+ ['Orchestration','how a payment moves',['Instant gateway (bolt-on)',['Legacy SCT engine','w'],['Batch-era file handlers','w']],['Event-driven payment hub','ISO 20022 canonical model','Idempotent, replayable flows']],
+ ['Risk and compliance','who says yes or no',['Fraud rules engine, per channel',['Sanctions engine, per payment','w'],['AML monitoring, next day','w']],['One real-time decision API','Daily and event-driven screening','Streaming AML','Feature store and MLOps']],
+ ['Ledger and liquidity','where the money is',[['Core banking, not 24/7','w'],['Shadow ledger, 5-minute sync','w'],['Liquidity in spreadsheets','w']],['24/7 ledger service','Real-time liquidity engine','Core reconciled by events']],
+ ['Connectivity','how it reaches the market',['One CSM link',['Manual fail-over','w']],['TIPS plus a second CSM','Smart routing, auto fail-over','Scheme adapters: SCT Inst, VoP']],
+ ['Operations and data','how people see it',[['Email and Excel exception queues','w'],['Reports the next morning','w'],['No payment-level tracing','w']],['Exception workbench','Payment tracing and SRE dashboards','Payments control tower']]];
+function arch(mode){
+  $('#arch').innerHTML=ARCH.map(l=>`<div class="layer"><div class="ln">${l[0]}<small>${l[1]}</small></div><div class="chips">${l[mode==='A'?2:3].map(c=>{const t=Array.isArray(c)?c[0]:c,w=Array.isArray(c);return `<span class="comp ${mode==='T'?'n':w?'w':''}">${t}</span>`;}).join('')}</div></div>`).join('');
+  $('#archA').setAttribute('aria-pressed',mode==='A');$('#archT').setAttribute('aria-pressed',mode==='T');
+}
+$('#archA').addEventListener('click',()=>arch('A'));$('#archT').addEventListener('click',()=>arch('T'));arch('A');
+
+/* scenario lab */
+const SC=[
+ {n:'Sunday 03:12, €45 to a known payee',
+  a:{steps:[['ok','Validate and enrich','Three channel mappers',900],['ok','Fraud rules','No alert, rules pass',2400],['ok','Per-payment sanctions screening','No hit',1900],['ok','Posting via shadow ledger','Synced',1700],['ok','Settlement round trip','Accepted',1300],['ok','Confirm and notify','Status refresh',900]],tot:'Total 9.1 s',tone:'warn',v:'Completed, with 91% of the budget used',d:'It works, but one slow beneficiary bank on this payment would have pushed it past ten seconds.'},
+  t:{steps:[['ok','Validate and enrich','Canonical model',180],['ok','Decision API','Green band, no friction',320],['ok','Customer screening status','Cleared in the daily run, light check only',150],['ok','24/7 ledger reservation','Idempotent',250],['ok','Settlement round trip','Accepted',1150],['ok','Confirm and notify','Event pushed to the app',450]],tot:'Total 2.5 s',tone:'ok',v:'Completed, with 25% of the budget used',d:'The same payment leaves room for a bad day.'}},
+ {n:'€4,800 to a new payee, name does not match',
+  a:{steps:[['warn','Payee check','Mismatch in small grey text; the customer taps through',null],['warn','Fraud rules','No alert, because the new-payee threshold is €5,000',2400],['ok','Per-payment sanctions screening','No hit',1900],['bad','Settlement','Funds irrevocably with an account used as a mule',1300],['bad','Discovery','Customer reports it after the weekend',null]],tot:'Outcome: paid',tone:'bad',v:'Loss of €4,800, recovery unlikely',d:'No single rule failed. The system had no way to connect the signals.'},
+  t:{steps:[['warn','Payee check','Close match: banner names the registered payee',null],['warn','Decision API','Score 0.87: new payee, remote-access tool detected, account opened 6 days ago, 3 prior reports on it',320],['ok','Adaptive friction','Contextual warning, cooling-off and a call-back offer',null],['ok','Customer cancels','The payment never leaves the bank',null],['ok','Financial-crime cell','Beneficiary account flagged and shared with the counterparty bank',null]],tot:'Held, then cancelled',tone:'ok',v:'Loss avoided, mule account flagged',d:'The decision stayed inside the budget; the customer made the final call with better information.'}},
+ {n:'Saturday 02:00, new sanctions list published',
+  a:{steps:[['ok','List update','Loaded into the screening engine',null],['bad','Per-payment screening','A common surname hits the new entry; the payment goes to a manual queue',1900],['bad','Queue','Analyst on call reached after 42 minutes',null],['bad','Customer','Sees "pending" for an instant payment',null]],tot:'Outcome: missed',tone:'bad',v:'10-second requirement missed, customer harmed',d:'A false positive in the critical path turns a rule meant for protection into an outage.'},
+  t:{steps:[['ok','List update','Triggers the delta run on the customer base within minutes',null],['ok','Coincidental name hit','Cleared by secondary data (date of birth, country)',null],['ok','Genuine match','Account restricted at customer level, before any payment',null],['ok','Payments','Clean flows continue, nothing waits in a queue',null]],tot:'Clean payments: 2.5 s',tone:'ok',v:'Clean payments flow, real hits stop at account level',d:'The control moved from the payment to the customer, which is where the regulation puts it.'}},
+ {n:'The beneficiary bank does not answer in time',
+  a:{steps:[['ok','Send to the CSM','Accepted by the CSM',1300],['warn','No confirmation returns','Status stays "pending"',null],['bad','Customer retries','Funds reserved twice',null],['bad','Operations','Finds the case in the next-morning report, emails the counterpart',null]],tot:'Outcome: ~14 h in limbo',tone:'bad',v:'Customer in limbo for hours, possible duplicate',d:'Nothing in the stack owns a payment that is neither done nor failed.'},
+  t:{steps:[['ok','Send to the CSM','Accepted by the CSM',1150],['warn','Timeout detected','The hub applies the scheme timeout rules',null],['ok','Status request','Raised automatically to the counterparty',null],['ok','Reservation','Released or confirmed by an event, no duplicate',null],['ok','Customer','Sees the true state with a reason in seconds',450]],tot:'Handled automatically',tone:'ok',v:'Resolved without a person, customer informed',d:'The hub gives every in-between state an owner and a timer.'}},
+ {n:'Late Saturday, a spike in outflows',
+  a:{steps:[['warn','Friday pre-funding','Sized on a four-week average',null],['warn','Event','Outflows run well above forecast',null],['bad','Buffer exhausted','New outgoing payments are rejected',null],['bad','Recovery','Treasury reachable on Monday',null]],tot:'Outcome: hours of rejections',tone:'bad',v:'Hours of rejected payments, customer and supervisor impact',d:'The weekend was a Friday decision, and Friday had no forecast.'},
+  t:{steps:[['ok','Friday pre-funding','Sized on a P99 forecast plus the event calendar',null],['ok','Alert at 70% usage','Treasury and Payments Ops see the same cockpit',null],['ok','Dynamic limits','Low-priority high-value flows are throttled first',null],['ok','Buffer holds','About 12% headroom remains',null]],tot:'0 rejections',tone:'ok',v:'No rejections, no incident review needed',d:'The same spike becomes a monitoring event instead of an outage.'}}];
+let curSc=0;
+const ic={ok:'✓',warn:'!',bad:'×'};
+function run(r,cls,title){return `<div class="run ${cls}"><header><div><div class="tag ${cls==='to'?'t':'a'}">${title}</div></div><span class="chip ${r.tone}">${r.tot}</span></header><ol>${r.steps.map(s=>`<li><span class="ic ${s[0]}">${ic[s[0]]}</span><div><b>${s[1]}</b><span class="d">${s[2]}</span></div><span class="ms">${s[3]!=null?(s[3]/1000).toFixed(2)+' s':''}</span></li>`).join('')}</ol><footer><b>${r.v}</b>${r.d}</footer></div>`;}
+function lab(){
+  $('#labtabs').innerHTML=SC.map((s,i)=>`<button class="tab" role="tab" aria-selected="${i===curSc}" data-i="${i}">${s.n}</button>`).join('');
+  $$('#labtabs .tab').forEach(b=>b.addEventListener('click',()=>{curSc=+b.dataset.i;lab();}));
+  $('#labout').innerHTML=run(SC[curSc].a,'','AS-IS · bolt-on stack')+run(SC[curSc].t,'to','TO-BE · my target design');
+}
+lab();
+
+/* from to */
+const FT=[['Payment flows','Bolt-on gateway into a batch-era engine, three channel paths','One event-driven path for every channel, 2.5 s p99'],['Operational processes','Office hours, email hand-offs, 14-step investigations','Follow-the-sun desk, one case owner, a 5-step flow'],['Fraud controls','Rules per channel, static thresholds','One real-time decision API with adaptive friction'],['Customer experience','Fast when it works, opaque when pending','An estimate and a reason on every non-final state'],['Settlement and liquidity','Static buffers, manual top-ups','P99 forecast, alerts, dynamic limits'],['Exception management','Email queues, no taxonomy','Taxonomy, automated triage, one workbench'],['Compliance','Evidence compiled by hand','Evidence generated from system logs'],['Technology architecture','Shadow ledger, single CSM link','24/7 ledger service, multi-CSM, full tracing']];
+$('#fromto').innerHTML=FT.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td style="color:var(--ink)">${r[2]}</td></tr>`).join('');
+
+/* roadmap */
+const WS=['Regulation and compliance','Architecture and platform','Fraud and financial crime','Operations and exceptions','Liquidity and settlement','Customer experience','Data and AI','People and governance'];
+const PH=[
+ {y:'2026',n:'Foundation',v:'See and standardise',aim:'Make every payment visible and agree the target before anything is rebuilt.',
+  ws:['Close IPR evidence gaps, stand up a regulatory radar (VoP, PSR, DORA)','Target blueprint, ISO 20022 canonical model, end-to-end payment tracing','Unify fraud case data across channels, baseline alert quality','Exception taxonomy and process mining, 24/7 operating model design','Intraday and weekend liquidity monitoring, forecast baseline','Real-time status and notifications for every payment state','Data contracts, feature store design, payments data lake','Payments Transformation Office, product ownership, RACI'],
+  gate:['100% of instant payments traceable end to end','Baseline KPIs signed off by Finance and Risk','Target architecture approved by the executive committee'],
+  kpi:[['91%','Straight-through rate, baseline'],['6.8%','Manual touch, baseline'],['9.1 s','p99 latency, baseline']]},
+ {y:'2027',n:'Process Transformation',v:'Redesign how work flows',aim:'Change how payments are decided, staffed and recovered, so that automation has something clean to automate.',
+  ws:['VoP 2.0 readiness for November 2027, DORA resilience testing programme','Event-driven payment hub live for instant, shadow ledger retired','Single real-time decision API, adaptive friction pilot','Follow-the-sun desk live, exception queues redesigned by root cause','Forecast-driven weekend pre-funding, liquidity cockpit for Treasury','Payee intelligence in the journey, limits self-service, request-to-pay pilot','ML fraud scoring in shadow mode, champion-challenger harness','Reskilling plan, model risk governance for ML in payments'],
+  gate:['Straight-through rate at 95% or better','One decision API serves every channel','Weekend rota runs without escalations to the on-call director'],
+  kpi:[['95%','Straight-through rate'],['4.0%','Manual touch'],['4.8 s','p99 latency']]},
+ {y:'2028',n:'Automation',v:'Take the human out of the loop',aim:'Let software handle the routine, so people handle judgement.',
+  ws:['Controls as code, evidence packs generated from logs','Multi-CSM routing with automatic fail-over, active-active resilience','ML scoring live in the decision path, mule-network graph features','Automated triage and recalls for at least 90% of exception types','Automated liquidity actions and dynamic limits','Proactive messages before the customer asks, in-app recall','Real-time features at scale, MLOps with drift monitoring','Operations roles move from processing to supervising and improving'],
+  gate:['Manual touch rate at 1.5% or lower','False alerts halved against 2026','Exit plans for critical vendors tested'],
+  kpi:[['98%','Straight-through rate'],['1.5%','Manual touch'],['3.0 s','p99 latency']]},
+ {y:'2029',n:'Intelligent Operations',v:'Predict, adapt, learn',aim:'Run payments as a learning system: it anticipates problems, adapts its controls and improves itself under supervision.',
+  ws:['Continuous compliance dashboard, supervisor-ready reporting','Self-healing runbooks, capacity that scales tenfold without re-platforming','Cross-bank intelligence sharing, investigator copilot with human sign-off','Predictive operations: failures flagged before customers feel them','Predictive liquidity with an event calendar and an optimiser','Instant-enabled services for SMEs: cash-flow views, instant payouts','Payments digital twin for what-if testing','Continuous improvement cadence owned by the business'],
+  gate:['Manual touch rate at 0.6%','Availability at 99.99%','Unit cost index at 58 or lower'],
+  kpi:[['99.2%','Straight-through rate'],['0.6%','Manual touch'],['2.5 s','p99 latency']]}];
+let curPh=0;
+function roadmap(){
+  $('#phases').innerHTML=PH.map((p,i)=>`<button class="ph" role="tab" aria-selected="${i===curPh}" data-i="${i}"><div class="y">${p.y}</div><div class="n">${p.n}</div><div class="v">${p.v}</div></button>`).join('');
+  $$('#phases .ph').forEach(b=>b.addEventListener('click',()=>{curPh=+b.dataset.i;roadmap();}));
+  const p=PH[curPh];
+  $('#phpanel').innerHTML=`<div class="card"><h4>My aim for ${p.y}</h4><p style="font:italic 26px/1.2 var(--f-display);margin-top:8px">${p.aim}</p><ul class="ws">${WS.map((w,i)=>`<li><b>${w}</b><span>${p.ws[i]}</span></li>`).join('')}</ul></div>
+   <div class="card" style="align-self:start"><h4>Exit gate</h4><ul class="gate">${p.gate.map(g=>`<li>${g}</li>`).join('')}</ul><h4 style="margin-top:22px">KPIs at the end of ${p.y}</h4><div class="kpis3">${p.kpi.map(k=>`<div><div class="n">${k[0]}</div><div class="l">${k[1]}</div></div>`).join('')}</div></div>`;
+  $('#matrix').innerHTML=`<thead><tr><th>Workstream</th>${PH.map((x,i)=>`<th class="${i===curPh?'cur':''}">${x.y} ${x.n}</th>`).join('')}</tr></thead><tbody>${WS.map((w,i)=>`<tr><td>${w}</td>${PH.map((x,j)=>`<td class="${j===curPh?'cur':''}">${x.ws[i]}</td>`).join('')}</tr>`).join('')}</tbody>`;
+}
+roadmap();
+
+/* KPI table */
+const KP=[['Instant share of credit transfers','26%','38%','52%','64%'],['Straight-through rate','91.0%','95.0%','98.0%','99.2%'],['Manual touch rate','6.8%','4.0%','1.5%','0.6%'],['Mean time to resolve an exception','3.1 days','1.5 days','6 hours','90 min'],['p99 end-to-end latency','9.1 s','4.8 s','3.0 s','2.5 s'],['Fraud alerts per 1,000 payments','18','12','7','4'],['Fraud loss, bps of instant volume','1.9','1.6','1.1','0.7'],['Availability','99.50%','99.80%','99.95%','99.99%'],['Unit cost index (2026 = 100)','100','90','72','58']];
+$('#kpitable').innerHTML=`<thead><tr><th>KPI I would track</th><th>Baseline 2026</th><th>End 2027</th><th>End 2028</th><th>End 2029</th></tr></thead><tbody>${KP.map(r=>`<tr><td><b>${r[0]}</b></td><td class="num">${r[1]}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num" style="color:var(--teal);font-weight:600">${r[4]}</td></tr>`).join('')}</tbody>`;
+
+/* business case sandbox */
+const YR=[2026,2027,2028,2029,2030,2031],COST=[14,17,11,6,3,3],OPEX=[.5,3,8,11,11.5,12],FR=[.3,1.5,3.5,6,6.5,7],RV=[.2,1.5,3.5,5,6,7];
+function bc(){
+  const sh=+$('#sShare').value/64,au=+$('#sAuto').value/100,ov=1+(+$('#sCost').value/100);
+  $('#oShare').textContent=$('#sShare').value+'%';$('#oAuto').textContent=$('#sAuto').value+'%';$('#oCost').textContent='+'+$('#sCost').value+'%';
+  const cost=COST.map(c=>c*ov),ben=YR.map((_,i)=>OPEX[i]*au+FR[i]*au*sh+RV[i]*sh);
+  let cu=0;const cum=YR.map((_,i)=>cu+=ben[i]-cost[i]);
+  const pi=cum.findIndex(v=>v>=0);
+  $('#rPay').textContent=pi>=0?YR[pi]:'After 2031';
+  $('#rNpv').textContent=(cum[5]>=0?'+':'')+Math.round(cum[5]);
+  $('#rRun').textContent=Math.round(ben[3]);
+  const hi=Math.max(10,Math.ceil(Math.max(...ben,...cum)/10)*10),lo=Math.min(-10,Math.floor(Math.min(...cost.map(c=>-c),...cum)/10)*10);
+  const X0=60,W=620,Y=v=>20+(hi-v)/(hi-lo)*250,bw=26,gap=W/6,step=(hi-lo)>70?20:10;
+  let s='';
+  for(let v=lo;v<=hi;v+=step){s+=`<line x1="${X0}" x2="${X0+W}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)" ${v===0?'stroke="var(--ink-3)"':'stroke-dasharray="3 5"'}/><text x="${X0-8}" y="${Y(v)+4}" text-anchor="end">${v}</text>`;}
+  s+=`<line x1="${X0}" x2="${X0+W}" y1="${Y(0)}" y2="${Y(0)}" stroke="var(--ink-3)"/>`;
+  YR.forEach((y,i)=>{const cx=X0+gap*i+gap/2;
+    s+=`<rect x="${cx-bw-2}" y="${Y(0)}" width="${bw}" height="${Math.max(0,Y(-cost[i])-Y(0))}" rx="3" fill="var(--coral)"/><rect x="${cx+2}" y="${Y(ben[i])}" width="${bw}" height="${Math.max(0,Y(0)-Y(ben[i]))}" rx="3" fill="var(--teal)"/><text x="${cx}" y="${292+8}" text-anchor="middle">${y}</text>`;});
+  const pts=cum.map((v,i)=>`${X0+gap*i+gap/2},${Y(v)}`).join(' ');
+  s+=`<polyline points="${pts}" fill="none" stroke="var(--ink)" stroke-width="2.6" stroke-linejoin="round"/>`+cum.map((v,i)=>`<circle cx="${X0+gap*i+gap/2}" cy="${Y(v)}" r="4.5" fill="var(--surface)" stroke="var(--ink)" stroke-width="2.4"/>`).join('');
+  const li=cum.length-1;s+=`<text class="lab" x="${X0+gap*li+gap/2}" y="${Y(cum[li])-12}" text-anchor="middle" style="fill:var(--ink)">${cum[li]>=0?'+':''}${Math.round(cum[li])}</text>`;
+  if(pi>=0){s+=`<text class="lab" x="${X0+gap*pi+gap/2-12}" y="${Y(cum[pi])+4}" text-anchor="end" style="fill:var(--teal);paint-order:stroke;stroke:var(--surface);stroke-width:4px;font-weight:600">Payback</text>`;}
+  $('#bc').innerHTML=s;
+}
+['sShare','sAuto','sCost'].forEach(id=>$('#'+id).addEventListener('input',bc));bc();
+
+/* risks */
+const RK=[['Weekend liquidity shortfall in a demand spike','Medium','High','P99 forecast, event calendar, alerts at 70%, rehearsed weekend drills'],['ML scoring drifts or treats customers unfairly','Medium','High','Champion-challenger, drift monitoring, model risk committee, human sign-off on holds'],['Big-bang core replacement overruns','High','High','Strangler pattern: the hub sits in front of the core, instant moves first, the core stays until evidence says otherwise'],['24/7 operations wear the team down','Medium','Medium','Automation first, a partner hub for nights, rota limits, protected improvement time'],['Regulatory moving target (VoP 2.0, fraud liability proposals)','High','Medium','Versioned scheme adapters, a regulatory radar owned by the Transformation Office'],['Vendor concentration and exit under DORA','Medium','High','Exit plans tested yearly, multi-CSM and multi-vendor routing'],['Backlash against adaptive friction','Medium','Medium','Pilot with a 2% abandonment guardrail, message testing with real customers']];
+const rc={Low:'var(--teal)',Medium:'var(--signal)',High:'var(--coral)'};
+$('#risktable').innerHTML=RK.map(r=>`<tr><td><b>${r[0]}</b></td><td><span class="risk-dot" style="background:${rc[r[1]]}"></span>${r[1]}</td><td><span class="risk-dot" style="background:${rc[r[2]]}"></span>${r[2]}</td><td>${r[3]}</td></tr>`).join('');
+})();
+</script>
+
+<script>
+(function(){
+const FR={"Architecture view": "Vue d'architecture", "Costs, benefits and cumulative net by year": "Coûts, bénéfices et net cumulé par année", "Cumulative net outflow over a weekend against two liquidity buffers": "Sortie nette cumulée sur un week-end face à deux coussins de liquidité", "Customer confidence curve across six journey stages, today versus redesigned": "Courbe de confiance du client sur six étapes du parcours, aujourd'hui contre après refonte", "Radar chart of maturity across eight lenses": "Radar de maturité sur les huit axes", "Roadmap phases": "Phases de la roadmap", "Scenarios": "Scénarios", "Sections": "Sections", "Toggle light and dark theme": "Basculer entre thème clair et thème sombre", "Toggle theme": "Changer de thème", "Two rings on a ten second dial. The bolt-on stack uses 9.1 seconds, my target design uses 2.5 seconds.": "Deux anneaux sur un cadran de dix secondes. L'empilement bolt-on consomme 9,1 secondes, mon design cible 2,5 secondes.", "\"Pending\" status before an invoice deadline": "Statut « en attente » avant une échéance de facture", ". The biggest wins are in the categories nobody owns, such as timeouts and invalid data.": ". Les plus gros gains se trouvent dans les catégories sans propriétaire, comme les timeouts et les données invalides.", "0 rejections": "0 rejet", "1 ad hoc": "1 ad hoc", "1.5 days": "1,5 jour", "10 s limit": "Limite de 10 s", "10-second requirement missed, customer harmed": "Exigence des 10 secondes manquée, client pénalisé", "10.1bn": "10,1 Md", "100% of instant payments traceable end to end": "100 % des paiements instantanés traçables de bout en bout", "2.0 out of 5": "2,0 sur 5", "2.5 s p99 design, tracked on a live dashboard": "Design à 2,5 s en p99, suivi sur un tableau de bord en direct", "20 Sep 2026": "20 sept. 2026", "2026 Foundation": "2026 Fondations", "2027 Process Transformation": "2027 Transformation des processus", "2027 pilot": "Pilote 2027", "2028 Automation": "2028 Automatisation", "2029 Intelligent Operations": "2029 Opérations intelligentes", "2029 target": "Cible 2029", "2029 target 4.5 / 5": "Cible 2029 : 4,5 / 5", "24/7 ledger reservation": "Réservation sur le ledger 24/7", "24/7 ledger service": "Service de ledger 24/7", "24/7 ledger service, multi-CSM, full tracing": "Ledger 24/7, multi-CSM, traçabilité complète", "24/7 liquidity view with P99 weekend forecast and alert at 70% usage": "Vue de liquidité 24/7 avec prévision P99 du week-end et alerte à 70 % d'utilisation", "24/7 operations and liquidity": "Opérations et liquidité 24/7", "24/7 operations wear the team down": "Les opérations 24/7 usent l'équipe", "26% in 2026, so behind the 35.6% market level. I take it to 64% by 2029": "26 % en 2026, donc en retrait du niveau de marché de 35,6 %. Je le porte à 64 % d'ici 2029", "3.1 days": "3,1 jours", "5 intelligent": "5 intelligent", "6 hours": "6 heures", "8 Apr 2024": "8 avr. 2024", "9 Oct 2025": "9 oct. 2025", "90 min": "90 min", "99% of instant payments complete in under 3 s end to end, p99 at 2.5 s by 2029": "99 % des paiements instantanés s'exécutent en moins de 3 s de bout en bout, p99 à 2,5 s d'ici 2029", ": SCT Inst share, 2025 volumes, PSP adoption, VoP v1.1 and v2.0 dates.": ": part du SCT Inst, volumes 2025, adoption par les PSP, dates de VoP v1.1 et v2.0.", ": TIPS, SCT Inst availability 24/7/365, T2.": ": TIPS, disponibilité du SCT Inst 24/7/365, T2.", ": receive, send, VoP, screening and 10-second requirements, with deadlines.": ": réception, envoi, VoP, filtrage et exigence des 10 secondes, avec les échéances.", "A 24/7 product is run by a 9-to-5 organisation.": "Un produit 24/7 piloté par une organisation 9h-17h.", "A common surname hits the new entry; the payment goes to a manual queue": "Un nom de famille courant correspond à la nouvelle entrée ; le paiement part en file manuelle", "A false positive in the critical path turns a rule meant for protection into an outage.": "Un faux positif dans le chemin critique transforme une règle de protection en panne.", "A good roadmap is a series of": "Une bonne roadmap est une suite de", "A personal case study by Aishwarya, Paris, October 2026. The bank is fictional and every bank-level figure is a modelling assumption I made. Market and regulatory facts come from the ECB, the EPC and the DNB (see Sources).": "Une étude de cas personnelle par Aishwarya, Paris, octobre 2026. La banque est fictive et chaque chiffre au niveau de la banque est une hypothèse de modélisation que j'ai posée. Les faits de marché et de réglementation proviennent de la BCE, de l'EPC et de la DNB (voir Sources).", "AML and terrorist-financing monitoring": "Surveillance LCB-FT", "AML monitoring, next day": "Surveillance LCB-FT, à J+1", "AS-IS diagnosis": "Diagnostic AS-IS", "AS-IS maturity": "Maturité AS-IS", "AS-IS · 14 steps · 5 hand-offs · 3.1 days": "AS-IS · 14 étapes · 5 relais · 3,1 jours", "AS-IS · Confirm and notify · 900 ms": "AS-IS · Confirmation et notification · 900 ms", "AS-IS · Fraud decision · 2,400 ms": "AS-IS · Décision fraude · 2 400 ms", "AS-IS · Funds and posting · 1,700 ms": "AS-IS · Fonds et comptabilisation · 1 700 ms", "AS-IS · Initiate, authenticate, check the payee": "AS-IS · Initier, authentifier, vérifier le bénéficiaire", "AS-IS · Sanctions and AML checks · 1,900 ms": "AS-IS · Sanctions et contrôles LCB · 1 900 ms", "AS-IS · Settlement round trip · 1,300 ms": "AS-IS · Aller-retour de règlement · 1 300 ms", "AS-IS · Validate and enrich · 900 ms": "AS-IS · Valider et enrichir · 900 ms", "AS-IS · bolt-on stack": "AS-IS · empilement bolt-on", "About 1.1bn a year, growing 3% annually": "Environ 1,1 Md par an, en croissance de 3 % par an", "About 12% headroom remains": "Il reste environ 12 % de marge", "About 33 hours of rejected payments": "Environ 33 heures de paiements rejetés", "Accepted": "Accepté", "Accepted by the CSM": "Accepté par le CSM", "Account restricted at customer level, before any payment": "Compte restreint au niveau client, avant tout paiement", "Across my eight lenses the bank scores": "Sur mes huit axes, la banque obtient en moyenne", "Active-active gateway, tested exit plans, automatic incident classification": "Passerelle active-active, plans de sortie testés, classification automatique des incidents", "Adaptive friction": "Friction adaptative", "Adaptive friction pilot with an abandonment guardrail of 2%": "Pilote de friction adaptative avec un garde-fou d'abandon de 2 %", "After 2031": "Après 2031", "After the payment": "Après le paiement", "Aftercare": "Après-vente", "Agent calls customer back": "L'agent rappelle le client", "Agent emails Payments Ops": "L'agent écrit à Payments Ops", "Agent logs ticket": "L'agent saisit un ticket", "Alert at 70% usage": "Alerte à 70 % d'utilisation", "Alerts at 70% usage, dynamic limits on low-priority high-value flows": "Alertes à 70 % d'utilisation, limites dynamiques sur les flux à forte valeur et faible priorité", "Alerts per 1,000, 2029": "Alertes pour 1 000, 2029", "Alerts per 1,000, today": "Alertes pour 1 000, aujourd'hui", "All workstreams on one page": "Tous les chantiers sur une page", "An estimate and a reason on every non-final state": "Une estimation et un motif sur chaque état non final", "An instant payment cannot be pulled back by waiting for the batch. Fraud moves to the channels where money is irrevocable within seconds.": "Un paiement instantané ne se rappelle pas en attendant le batch. La fraude migre vers les canaux où l'argent est irrévocable en quelques secondes.", "An instant payment spends its ten seconds in the wrong places.": "Un paiement instantané dépense ses dix secondes aux mauvais endroits.", "Analyst on call reached after 42 minutes": "Analyste d'astreinte joint après 42 minutes", "Architecture and platform": "Architecture et plateforme", "Auto-resolved by 2029": "Résolu automatiquement d'ici 2029", "Auto-resolved, or one named owner": "Résolu automatiquement, ou un responsable nommé", "Automated": "Automatisé", "Automated liquidity actions and dynamic limits": "Actions de liquidité automatisées et limites dynamiques", "Automated triage and recalls for at least 90% of exception types": "Tri et rappels automatisés pour au moins 90 % des types d'exception", "Automated triage for at least 90% of exception types by 2028": "Tri automatisé d'au moins 90 % des types d'exception d'ici 2028", "Automation": "Automatisation", "Automation before headcount": "L'automatisation avant les effectifs", "Automation benefits realised": "Bénéfices d'automatisation réalisés", "Automation first line": "Première ligne automatisée", "Automation first, a partner hub for nights, rota limits, protected improvement time": "D'abord l'automatisation, un hub partenaire pour les nuits, plafonds de rotation, temps d'amélioration protégé", "Automation queries the CSM and updates the state": "L'automate interroge le CSM et met à jour l'état", "Automation: exceptions and liquidity handled by software first.": "Automatisation : exceptions et liquidité traitées d'abord par logiciel.", "Availability": "Disponibilité", "Availability at 99.99%": "Disponibilité à 99,99 %", "Average": "Moyenne", "Average-based buffer": "Coussin calé sur la moyenne", "BA toolkit": "Boîte à outils BA", "Backlash against adaptive friction": "Rejet de la friction adaptative par les clients", "Band shares and KPIs are my modelling assumptions.": "Les parts des bandes et les KPI sont mes hypothèses de modélisation.", "Base case: €48M of cost over four years, €22M annual run-rate benefit in 2029. All figures are my assumptions, in € millions.": "Scénario de base : 48 M€ de coûts sur quatre ans, 22 M€ de bénéfice annuel en régime de croisière en 2029. Tous les chiffres sont mes hypothèses, en millions d'euros.", "Baseline 2026": "Référence 2026", "Baseline KPIs signed off by Finance and Risk": "KPI de référence validés par la Finance et les Risques", "Basic rules": "Règles de base", "Batch-era file handlers": "Gestionnaires de fichiers de l'ère batch", "Before the clock": "Avant le chrono", "Behavioural signals as personal data": "Signaux comportementaux comme données personnelles", "Beneficiary account flagged and shared with the counterparty bank": "Compte bénéficiaire signalé et partagé avec la banque correspondante", "Beneficiary account issues": "Problèmes de compte bénéficiaire", "Benefit": "Bénéfice", "Big-bang core replacement overruns": "Dérapage d'un remplacement du cœur bancaire en big bang", "Board risk committee": "Comité des risques du conseil", "Bolt-on gateway into a batch-era engine, three channel paths": "Passerelle bolt-on vers un moteur de l'ère batch, trois chemins par canal", "Bolt-on stack today": "Empilement bolt-on aujourd'hui", "Bolt-on today": "Bolt-on aujourd'hui", "Buffer exhausted": "Coussin épuisé", "Buffer holds": "Le coussin tient", "Buffer sized on an average": "Coussin calé sur une moyenne", "Buffer sized on my P99 forecast": "Coussin calé sur ma prévision P99", "Business analysis toolkit": "Boîte à outils d'analyse métier", "Business analysis, process design and strategy for payments and financial services. Everything on this page was written, modelled and designed by me.": "Analyse métier, conception de processus et stratégie pour les paiements et les services financiers. Tout ce qui figure sur cette page a été rédigé, modélisé et conçu par moi.", "Business case": "Business case", "Business requirements I would write first": "Les exigences métier que j'écrirais en premier", "By": "Échéance", "CRO and financial crime": "CRO et criminalité financière", "CSM operators": "Opérateurs de CSM", "Can I stop a bad payment in 300 ms without blocking a good one?": "Puis-je arrêter un mauvais paiement en 300 ms sans bloquer un bon ?", "Canonical model": "Modèle canonique", "Case closed": "Dossier clos", "Champion-challenger, drift monitoring, model risk committee, human sign-off on holds": "Champion-challenger, suivi de la dérive, comité de risque de modèle, validation humaine des blocages", "Change how payments are decided, staffed and recovered, so that automation has something clean to automate.": "Changer la façon dont les paiements sont décidés, staffés et récupérés, pour que l'automatisation ait quelque chose de propre à automatiser.", "Channels and APIs": "Canaux et API", "Check payee": "Vérif. bénéf.", "Clean flows continue, nothing waits in a queue": "Les flux sains continuent, rien n'attend en file", "Clean payments flow, real hits stop at account level": "Les paiements sains passent, les vrais hits s'arrêtent au niveau du compte", "Clean payments: 2.5 s": "Paiements sains : 2,5 s", "Cleared by secondary data (date of birth, country)": "Levé par des données secondaires (date de naissance, pays)", "Cleared in the daily run, light check only": "Validé lors du run quotidien, simple contrôle léger", "Close IPR evidence gaps, stand up a regulatory radar (VoP, PSR, DORA)": "Combler les lacunes de preuve IPR, mettre en place un radar réglementaire (VoP, PSR, DORA)", "Close match: banner names the registered payee": "Correspondance proche : le bandeau indique le bénéficiaire enregistré", "Coincidental name hit": "Homonymie fortuite", "Completed, with 25% of the budget used": "Terminé, avec 25 % du budget consommé", "Completed, with 91% of the budget used": "Terminé, avec 91 % du budget consommé", "Compliance": "Conformité", "Compliance got banks to the starting line.": "La conformité a mené les banques sur la ligne de départ.", "Compliant, not transformed": "Conforme, pas transformée", "Confidence score 1 to 5, my journey assessment": "Score de confiance de 1 à 5, mon évaluation du parcours", "Confirm": "Confirmation", "Confirm and notify": "Confirmation et notification", "Connectivity": "Connectivité", "Contextual warning": "Avertissement contextuel", "Contextual warning, cooling-off and a call-back offer": "Avertissement contextuel, délai de réflexion et proposition de rappel", "Continuous compliance dashboard, supervisor-ready reporting": "Tableau de bord de conformité continue, reporting prêt pour le superviseur", "Continuous improvement cadence owned by the business": "Cadence d'amélioration continue pilotée par le métier", "Controls as code, evidence packs generated from logs": "Contrôles as code, dossiers de preuve générés depuis les logs", "Core banking, not 24/7": "Core banking non 24/7", "Core reconciled by events": "Cœur rapproché par événements", "Corporate host-to-host": "Host-to-host entreprise", "Could": "Pourrait", "Credit transfers": "Virements", "Cross-bank intelligence sharing, investigator copilot with human sign-off": "Partage de renseignements entre banques, copilote d'enquêteur avec validation humaine", "Cumulative net": "Net cumulé", "Cumulative net by 2031, €M": "Net cumulé à fin 2031, M€", "Cumulative net outflow (synthetic weekend)": "Sortie nette cumulée (week-end synthétique)", "Cumulative payback year": "Année de retour sur investissement cumulé", "Curve is synthetic and normalised to 100 units. I would check the current T2 and TIPS operating calendar before sizing a real buffer.": "La courbe est synthétique et normalisée à 100 unités. Je vérifierais le calendrier d'exploitation actuel de T2 et TIPS avant de dimensionner un vrai coussin.", "Customer": "Client", "Customer calls": "Le client appelle", "Customer cancels": "Le client annule", "Customer exp.": "Exp. client", "Customer experience": "Expérience client", "Customer in limbo for hours, possible duplicate": "Client en suspens pendant des heures, doublon possible", "Customer notified in app": "Client notifié dans l'app", "Customer reports it after the weekend": "Le client le signale après le week-end", "Customer retries": "Le client réessaie", "Customer sanctions screening, at least daily": "Filtrage des sanctions clients, au moins quotidien", "Customer screening status": "Statut du filtrage client", "Customer sees live status in app": "Le client voit le statut en direct dans l'app", "Customer service": "Service client", "Customer value": "Valeur client", "Customers": "Clients", "DNB, Instant Payments Regulation: new obligations": "DNB, Règlement sur les paiements instantanés : nouvelles obligations", "DPIA, data minimisation, retention rules before launch": "AIPD, minimisation des données, règles de conservation avant le lancement", "Daily and event-driven screening": "Filtrage quotidien et déclenché par événement", "Data and AI": "Données et IA", "Data and AI foundation.": "Fondation données et IA.", "Data contracts, feature store design, payments data lake": "Contrats de données, conception du feature store, data lake des paiements", "Decision API": "API de décision", "Device binding, remote-access tool flags, behavioural signals": "Liaison d'appareil, signaux d'outils d'accès à distance, signaux comportementaux", "Discovery": "Découverte", "Does the platform bend or break at ten times the volume?": "La plateforme plie-t-elle ou casse-t-elle à dix fois le volume ?", "Dynamic limits": "Limites dynamiques", "ECB, Instant payments": "BCE, Paiements instantanés", "EPC Verification of Payee scheme v1.1 goes live": "Le schéma EPC Verification of Payee v1.1 entre en production", "EPC Verification of Payee v2.0 planned go-live": "Mise en production prévue du schéma EPC Verification of Payee v2.0", "EPC and industry bodies": "EPC et organismes professionnels", "EPC update on payment schemes and VoP deployment, ECB AMI-Pay, 5 May 2026": "Mise à jour de l'EPC sur les schémas de paiement et le déploiement de la VoP, ECB AMI-Pay, 5 mai 2026", "EU AML framework": "Cadre européen LCB-FT", "Each lens gets one finding, one visual, and one design response. I kept the structure identical so the eight can be compared.": "Chaque axe reçoit un constat, un visuel et une réponse de conception. J'ai gardé la même structure pour pouvoir comparer les huit.", "Each one earns the next.": "Chacune mérite la suivante.", "Eight lenses": "Huit axes", "Eight lenses, AS-IS to TO-BE": "Huit axes, de l'AS-IS au TO-BE", "Eight lenses, one question each.": "Huit axes, une question chacun.", "Eight-lens diagnosis": "Diagnostic en huit axes", "Email and Excel exception queues": "Files d'exceptions par email et Excel", "Email and spreadsheet queues, no root-cause taxonomy.": "Files par email et tableur, pas de taxonomie des causes racines.", "Email chains and 14-step investigations": "Chaînes d'emails et enquêtes en 14 étapes", "Email queues, no taxonomy": "Files par email, pas de taxonomie", "End 2027": "Fin 2027", "End 2028": "Fin 2028", "End 2029": "Fin 2029", "Errata and clarifications. It tells me the bank needs a versioned scheme adapter, not a one-off build.": "Errata et clarifications. Cela me dit que la banque a besoin d'un adaptateur de schéma versionné, pas d'un développement ponctuel.", "Euro-area PSPs must be able to receive from 9 January. DORA also starts to apply, on 17 January.": "Les PSP de la zone euro doivent pouvoir recevoir à partir du 9 janvier. DORA commence aussi à s'appliquer, le 17 janvier.", "Euro-area universal bank, 5.5M retail clients, 320k SME and corporate clients": "Banque universelle de la zone euro, 5,5 M de clients particuliers, 320 k clients PME et grandes entreprises", "European Payments Transformation": "Transformation des paiements européens", "Event": "Événement", "Event notifications": "Notifications d'événements", "Event pushed to the app": "Événement poussé vers l'app", "Event-driven hub, ISO 20022 canonical model, 24/7 ledger service, multi-CSM routing.": "Hub événementiel, modèle canonique ISO 20022, service de ledger 24/7, routage multi-CSM.", "Event-driven payment hub": "Hub de paiement événementiel", "Event-driven payment hub live for instant, shadow ledger retired": "Hub de paiement événementiel en production pour l'instantané, shadow ledger retiré", "Every non-final state shows an estimate and a reason": "Chaque état non final affiche une estimation et un motif", "Every non-final state shows an estimate and a reason in app and API": "Chaque état non final affiche une estimation et un motif dans l'app et l'API", "Every payment carries one trace ID from channel to settlement.": "Chaque paiement porte un identifiant de trace du canal jusqu'au règlement.", "Every payment is screened against the full list by a batch-era engine, with many false hits on common names: 1,900 ms.": "Chaque paiement est filtré contre la liste complète par un moteur de l'ère batch, avec beaucoup de faux hits sur les noms courants : 1 900 ms.", "Every payment traceable with one ID across channel, hub and CSM by end 2026": "Chaque paiement traçable avec un seul identifiant à travers canal, hub et CSM d'ici fin 2026", "Evidence I used": "Preuves utilisées", "Evidence compiled by hand": "Preuves compilées à la main", "Evidence generated from system logs": "Preuves générées depuis les logs système", "Evidence packs for IPR, VoP and DORA generated from logs, not compiled by hand": "Dossiers de preuve IPR, VoP et DORA générés depuis les logs, pas compilés à la main", "Exception management": "Gestion des exceptions", "Exception taxonomy I built, and what I automate": "Taxonomie des exceptions que j'ai construite, et ce que j'automatise", "Exception taxonomy and process mining, 24/7 operating model design": "Taxonomie des exceptions et process mining, conception du modèle opérationnel 24/7", "Exception workbench": "Poste de travail des exceptions", "Exception workbench with automatic triage": "Poste de travail des exceptions avec tri automatique", "Exceptions": "Exceptions", "Executive summary": "Synthèse", "Exit gate": "Critère de sortie", "Exit plans for critical vendors tested": "Plans de sortie des fournisseurs critiques testés", "Exit plans tested yearly, multi-CSM and multi-vendor routing": "Plans de sortie testés chaque année, routage multi-CSM et multi-fournisseurs", "False alerts halved against 2026": "Fausses alertes divisées par deux par rapport à 2026", "Fast when it works, opaque when pending": "Rapide quand ça marche, opaque quand c'est en attente", "Feature store and MLOps": "Feature store et MLOps", "Fewer manual touches, fewer investigations, smaller reconciliation effort, by 2029.": "Moins d'interventions manuelles, moins d'enquêtes, moins d'effort de réconciliation, d'ici 2029.", "Financial Services": "Services financiers", "Financial-crime cell": "Cellule criminalité financière", "Financial-crime fusion cell": "Cellule de fusion de la criminalité financière", "Finds the case in the next-morning report, emails the counterpart": "Trouve le dossier dans le rapport du lendemain matin, écrit à la contrepartie", "Flows": "Flux", "Follow-the-sun desk": "Desk follow-the-sun", "Follow-the-sun desk live, exception queues redesigned by root cause": "Desk follow-the-sun en service, files d'exceptions repensées par cause racine", "Follow-the-sun desk, exception workbench, liquidity cockpit shared with Treasury.": "Desk follow-the-sun, poste de travail des exceptions, cockpit de liquidité partagé avec la Trésorerie.", "Follow-the-sun desk, one case owner, a 5-step flow": "Desk follow-the-sun, un seul responsable de dossier, un flux en 5 étapes", "Forecast-driven weekend pre-funding, liquidity cockpit for Treasury": "Pré-financement du week-end piloté par prévision, cockpit de liquidité pour la Trésorerie", "Foundation": "Fondations", "Foundation: make every payment visible, agree the target.": "Fondations : rendre chaque paiement visible, s'accorder sur la cible.", "Four people I designed for": "Quatre personnes pour qui j'ai conçu", "Four phases.": "Quatre phases.", "Fraud": "Fraude", "Fraud alerts per 1,000 payments": "Alertes fraude pour 1 000 paiements", "Fraud analyst reviews": "L'analyste fraude examine", "Fraud and financial crime": "Fraude et criminalité financière", "Fraud and sanctions holds": "Blocages fraude et sanctions", "Fraud controls": "Contrôles antifraude", "Fraud decision": "Décision fraude", "Fraud liability and spoofing rules": "Règles de responsabilité en cas de fraude et d'usurpation d'identité", "Fraud loss, bps of instant volume": "Perte fraude, pb du volume instantané", "Fraud loss, bps of volume": "Perte fraude, pb du volume", "Fraud losses avoided": "Pertes fraude évitées", "Fraud rules": "Règles fraude", "Fraud rules engine, per channel": "Moteur de règles fraude, par canal", "Fraud, CX": "Fraude, CX", "Fraud, VoP outcome, limits and sanctions status answer through one API.": "Fraude, résultat VoP, plafonds et statut des sanctions répondent via une seule API.", "Fraud, sanctions and AML on one decision API and one case tool, staffed together.": "Fraude, sanctions et LCB sur une seule API de décision et un seul outil de dossiers, staffés ensemble.", "Fraud, sanctions, liquidity and exceptions run as separate silos. A Saturday-night incident becomes a Monday-morning problem, and the customer feels every hour of it.": "Fraude, sanctions, liquidité et exceptions fonctionnent en silos séparés. Un incident du samedi soir devient un problème du lundi matin, et le client ressent chaque heure.", "Freelance designer, 29": "Designer freelance, 29 ans", "Fri": "Ven", "Fri 18:00": "Ven 18:00", "Friday pre-funding": "Pré-financement du vendredi", "Friday pre-funding sized on a": "Pré-financement du vendredi calé sur", "From (AS-IS)": "De (AS-IS)", "From 1.9 to 0.7 bps of instant volume, plus fewer false alerts to review.": "De 1,9 à 0,7 pb du volume instantané, plus moins de fausses alertes à examiner.", "Full desk": "Desk complet", "Funds and posting": "Fonds et comptabilisation", "Funds irrevocably with an account used as a mule": "Fonds irrévocablement chez un compte utilisé comme mule", "Funds reserved twice": "Fonds réservés deux fois", "GDPR": "RGPD", "Gap": "Écart", "Generic pop-up": "Pop-up générique", "Genuine match": "Vraie correspondance", "Governance.": "Gouvernance.", "Green band, no friction": "Bande verte, aucune friction", "Growth and retention": "Croissance et fidélisation", "Handled automatically": "Traité automatiquement", "Head of Payments (sponsor)": "Responsable des paiements (sponsor)", "Held, then cancelled": "Bloqué, puis annulé", "High": "Élevé", "Hold, 0.3%": "Blocage, 0,3 %", "Hours of rejected payments, customer and supervisor impact": "Des heures de paiements rejetés, impact client et superviseur", "How long until the customer is certain?": "Combien de temps avant que le client soit certain ?", "How my decision layer spreads the traffic": "Comment ma couche de décision répartit le trafic", "How should a European bank transform its payments operating model for the instant payments era?": "Comment une banque européenne devrait-elle transformer son modèle opérationnel des paiements pour l'ère des paiements instantanés ?", "Human hand-off": "Relais humain", "Human in the loop for judgement": "L'humain dans la boucle pour le jugement", "Hurts today": "Ce qui fait mal aujourd'hui", "I add people only for judgement, never for volume.": "J'ajoute des personnes uniquement pour le jugement, jamais pour le volume.", "I analysed the payment chain end to end through eight lenses, scored each one for maturity, designed a TO-BE, and sequenced it into a roadmap with exit gates.": "J'ai analysé la chaîne de paiement de bout en bout à travers huit axes, noté la maturité de chacun, conçu un TO-BE et l'ai séquencé en roadmap avec des critères de sortie.", "I mapped how one reference bank really runs payments today, then designed where it has to be by 2029.": "J'ai cartographié comment une banque de référence gère réellement ses paiements aujourd'hui, puis conçu où elle doit être en 2029.", "I read the Instant Payments Regulation as a floor. It fixes what a bank must offer. It says nothing about how well the machine behind it runs.": "Je lis le règlement sur les paiements instantanés comme un plancher. Il fixe ce qu'une banque doit proposer. Il ne dit rien de la qualité de la machine derrière.", "I replayed five real-world situations through both stacks. Pick a scenario and compare what happens, step by step. All timings and amounts come from my model.": "J'ai rejoué cinq situations réelles dans les deux empilements. Choisissez un scénario et comparez ce qui se passe, étape par étape. Tous les délais et montants viennent de mon modèle.", "I scored each lens from 1 (ad hoc) to 5 (intelligent, automated, measured), using the evidence in the right-hand column. The heatmap also shows the maturity I target in each year.": "J'ai noté chaque axe de 1 (ad hoc) à 5 (intelligent, automatisé, mesuré), à partir des preuves de la colonne de droite. La heatmap montre aussi la maturité que je vise chaque année.", "I sequenced the work so that every phase ends with a gate, a set of KPIs and a decision. Select a phase to see my objective, the deliverables across eight workstreams, and what must be true to move on.": "J'ai séquencé le travail pour que chaque phase se termine par un critère de sortie, un jeu de KPI et une décision. Choisissez une phase pour voir mon objectif, les livrables sur huit chantiers et ce qui doit être vrai pour passer à la suite.", "I treat friction as a budget. Almost every payment should feel like nothing. The few that deserve a pause get a message that explains why, because a warning people click through protects nobody.": "Je traite la friction comme un budget. Presque tous les paiements doivent ne rien faire sentir. Les rares qui méritent une pause reçoivent un message qui explique pourquoi, car un avertissement que l'on valide sans lire ne protège personne.", "I would ask the executive committee for three things in 2026: approval of the target architecture, approval of a 24/7 operating model, and a phased envelope of about €48M released gate by gate. Nothing in year one is irreversible, which is deliberate.": "Je demanderais au comité exécutif trois choses en 2026 : l'approbation de l'architecture cible, l'approbation d'un modèle opérationnel 24/7, et une enveloppe phasée d'environ 48 M€ débloquée par critère de sortie. Rien n'est irréversible la première année, c'est voulu.", "I would mine real exception logs to replace my taxonomy shares, calibrate latency on production traces, and rebuild the liquidity curve from actual weekend flows.": "J'exploiterais de vrais logs d'exceptions pour remplacer mes parts de taxonomie, calibrerais la latence sur des traces de production et reconstruirais la courbe de liquidité à partir de vrais flux de week-end.", "ICT risk and resilience": "Risque TIC et résilience", "ID": "ID", "IPR": "IPR", "IPR and EPC VoP scheme (v1.1 live 20 Sep 2026, v2.0 planned Nov 2027)": "IPR et schéma EPC VoP (v1.1 en production le 20 sept. 2026, v2.0 prévue en nov. 2027)", "IPR minimums met, evidence compiled by hand.": "Minimums IPR atteints, preuves compilées à la main.", "ISO 20022 canonical model": "Modèle canonique ISO 20022", "ISO 20022 corporate API": "API entreprise ISO 20022", "ISO 20022 native": "ISO 20022 natif", "Idempotent": "Idempotent", "Idempotent, replayable flows": "Flux idempotents et rejouables", "Impact": "Impact", "In my latency model, the bolt-on stack uses": "Dans mon modèle de latence, l'empilement bolt-on consomme", "Initiate": "Initier", "Initiate, authenticate, check the payee": "Initier, authentifier, vérifier le bénéficiaire", "Instant Payments Regulation": "Règlement sur les paiements instantanés", "Instant Payments Regulation enters into force": "Le règlement sur les paiements instantanés entre en vigueur", "Instant account-to-account · request-to-pay · instant corporate payouts · real-time status": "Virement instantané de compte à compte · request-to-pay · paiements instantanés d'entreprise · statut en temps réel", "Instant gateway (bolt-on)": "Passerelle instantanée (bolt-on)", "Instant gateway bolted onto a batch-era SCT engine, built to meet the 2025 deadlines": "Passerelle instantanée greffée sur un moteur SCT de l'ère batch, construite pour tenir les échéances de 2025", "Instant gateway feeds a SCT engine built for batch, with three channel-specific paths.": "La passerelle instantanée alimente un moteur SCT conçu pour le batch, avec trois chemins par canal.", "Instant no dearer than standard": "Instantané pas plus cher que le standard", "Instant payments grew 73% in 2025 and now make up more than a third of SEPA credit transfers. Every manual workaround scales with that curve.": "Les paiements instantanés ont progressé de 73 % en 2025 et représentent désormais plus d'un tiers des virements SEPA. Chaque contournement manuel suit cette courbe.", "Instant share": "Part d'instantané", "Instant share of credit transfers": "Part d'instantané dans les virements", "Instant share of transfers in 2029": "Part d'instantané dans les virements en 2029", "Instant-enabled SME services and request-to-pay, the least certain line in my model.": "Services PME instantanés et request-to-pay, la ligne la moins certaine de mon modèle.", "Instant-enabled services for SMEs: cash-flow views, instant payouts": "Services instantanés pour les PME : vues de trésorerie, paiements instantanés", "Intelligent Operations": "Opérations intelligentes", "Intelligent operations: predict, adapt, learn.": "Opérations intelligentes : prédire, s'adapter, apprendre.", "Interest →": "Intérêt →", "Intraday and weekend liquidity monitoring, forecast baseline": "Suivi de la liquidité intrajournalière et de week-end, prévision de référence", "Invalid or incomplete data": "Données invalides ou incomplètes", "Investigation runs through email between five teams": "L'enquête passe par des emails entre cinq équipes", "Investigations and disputes": "Enquêtes et litiges", "Irrevocable means the control has to arrive before the money.": "Irrévocable signifie que le contrôle doit arriver avant l'argent.", "Is there liquidity at 03:00 on a Sunday?": "Y a-t-il de la liquidité à 03:00 un dimanche ?", "It works, but one slow beneficiary bank on this payment would have pushed it past ten seconds.": "Ça marche, mais une banque bénéficiaire lente sur ce paiement l'aurait fait dépasser dix secondes.", "Jan 2025": "Janv. 2025", "KPI I would track": "KPI que je suivrais", "KPIs and business case": "KPI et business case", "KPIs at the end of 2026": "KPI à la fin de 2026", "KPIs at the end of 2027": "KPI à la fin de 2027", "KPIs at the end of 2028": "KPI à la fin de 2028", "KPIs at the end of 2029": "KPI à la fin de 2029", "Keep informed": "Tenir informés", "Keep satisfied": "Garder satisfaits", "Late Saturday, a spike in outflows": "Samedi tard, un pic de sorties", "Latency": "Latence", "Layer": "Couche", "Lean desk": "Desk allégé", "Ledger and liquidity": "Ledger et liquidité", "Legacy SCT engine": "Moteur SCT historique", "Lens": "Axe", "Lens · Compliance": "Axe · Conformité", "Lens · Customer experience": "Axe · Expérience client", "Lens · Exception management": "Axe · Gestion des exceptions", "Lens · Fraud controls": "Axe · Contrôles antifraude", "Lens · Operational processes": "Axe · Processus opérationnels", "Lens · Payment flows": "Axe · Flux de paiement", "Lens · Settlement and liquidity": "Axe · Règlement et liquidité", "Lens · Technology architecture": "Axe · Architecture technique", "Let software handle the routine, so people handle judgement.": "Laisser le logiciel gérer la routine, pour que les personnes gèrent le jugement.", "Likelihood": "Probabilité", "Limits, recalls and request-to-pay are self-service": "Plafonds, rappels et request-to-pay en libre-service", "Liquidity": "Liquidité", "Liquidity and settlement": "Liquidité et règlement", "Liquidity cockpit with P99 forecast and alerts": "Cockpit de liquidité avec prévision P99 et alertes", "Liquidity in spreadsheets": "Liquidité dans des tableurs", "Liquidity tracked in spreadsheets, no event calendar": "Liquidité suivie dans des tableurs, pas de calendrier d'événements", "List update": "Mise à jour de la liste", "Live": "En production", "Loaded into the screening engine": "Chargée dans le moteur de filtrage", "Loss avoided, mule account flagged": "Perte évitée, compte mule signalé", "Loss of €4,800, recovery unlikely": "Perte de 4 800 €, récupération improbable", "Loss, bps, 2029": "Perte, pb, 2029", "Loss, bps, today": "Perte, pb, aujourd'hui", "Low-priority high-value flows are throttled first": "Les flux à forte valeur et faible priorité sont bridés en premier", "ML fraud scoring in shadow mode, champion-challenger harness": "Scoring fraude ML en mode shadow, harnais champion-challenger", "ML scoring drifts or treats customers unfairly": "Le scoring ML dérive ou traite des clients de façon inéquitable", "ML scoring live in the decision path, mule-network graph features": "Scoring ML en production dans le chemin de décision, features de graphe sur les réseaux de mules", "Make every payment visible and agree the target before anything is rebuilt.": "Rendre chaque paiement visible et s'accorder sur la cible avant de reconstruire quoi que ce soit.", "Manage closely": "Gérer de près", "Manual": "Manuel", "Manual fail-over": "Bascule manuelle", "Manual touch": "Intervention manuelle", "Manual touch rate": "Taux d'intervention manuelle", "Manual touch rate at 0.6%": "Taux d'intervention manuelle à 0,6 %", "Manual touch rate at 1.5% or lower": "Taux d'intervention manuelle à 1,5 % ou moins", "Manual touch, baseline": "Intervention manuelle, référence", "Market": "Marché", "Market and regulation": "Marché et réglementation", "Mean time to resolve an exception": "Délai moyen de résolution d'une exception", "Medium": "Moyen", "Message flow I used: pain.001 → pacs.008 → pacs.002 → customer status. Returns and recalls: pacs.004, camt.056. Timings are my modelled p99 values.": "Flux de messages utilisé : pain.001 → pacs.008 → pacs.002 → statut client. Retours et rappels : pacs.004, camt.056. Les délais sont mes valeurs p99 modélisées.", "Met": "Respecté", "Met by effort today, to be met by design tomorrow.": "Respectée par l'effort aujourd'hui, à respecter par conception demain.", "Met, evidence manual": "Respecté, preuves manuelles", "Method": "Méthode", "Method, assumptions and sources": "Méthode, hypothèses et sources", "Minimum compliance met, 26% instant share, operating model still batch-era.": "Conformité minimale atteinte, 26 % d'instantané, modèle opérationnel encore de l'ère batch.", "Minimum met": "Minimum respecté", "Mismatch in small grey text; the customer taps through": "Écart affiché en petit texte gris ; le client passe outre", "Mobile app": "App mobile", "Models propose, named people sign off on holds and recalls.": "Les modèles proposent, des personnes nommées valident les blocages et les rappels.", "Mon": "Lun", "Mon 00:00": "Lun 00:00", "Mon 08:00": "Lun 08:00", "Monitor": "Surveiller", "Multi-CSM routing with automatic fail-over, active-active resilience": "Routage multi-CSM avec bascule automatique, résilience active-active", "Must": "Doit", "My TO-BE design": "Mon design TO-BE", "My aim for 2026": "Mon objectif pour 2026", "My aim for 2027": "Mon objectif pour 2027", "My aim for 2028": "Mon objectif pour 2028", "My aim for 2029": "Mon objectif pour 2029", "My decision ask": "Ma demande de décision", "My design choice": "Mon choix de conception", "My finding:": "Mon constat :", "My lowest point: waiting with no estimate": "Mon point le plus bas : attendre sans estimation", "My mitigation": "Ma mitigation", "My read": "Ma lecture", "My redesign": "Ma refonte", "My reference bank passed the 2025 deadlines the way most banks did, by wrapping a batch-era stack in an instant gateway. It works. It also leaves almost no room for a bad day, and volume is growing fast.": "Ma banque de référence a passé les échéances de 2025 comme la plupart des banques, en enveloppant un empilement de l'ère batch dans une passerelle instantanée. Ça marche. Mais cela ne laisse presque aucune marge pour un mauvais jour, et les volumes croissent vite.", "My reference bank, so the numbers have an anchor": "Ma banque de référence, pour que les chiffres aient un point d'ancrage", "My target design": "Mon design cible", "My target model has three pillars on a shared data foundation. The pillars map to the owners of today's silos, so the change is organisational as well as technical.": "Mon modèle cible repose sur trois piliers et une fondation de données commune. Les piliers correspondent aux propriétaires des silos actuels, le changement est donc organisationnel autant que technique.", "My verdict": "Mon verdict", "Near-real-time monitoring on the event stream": "Surveillance quasi temps réel sur le flux d'événements", "Needs": "Besoins", "New outgoing payments are rejected": "Les nouveaux paiements sortants sont rejetés", "Next-day": "À J+1", "No alert, because the new-payee threshold is €5,000": "Aucune alerte, car le seuil nouveau bénéficiaire est de 5 000 €", "No alert, rules pass": "Aucune alerte, les règles passent", "No batch step may sit in the instant path.": "Aucune étape batch ne doit se trouver dans le chemin instantané.", "No confirmation returns": "Aucune confirmation ne revient", "No hit": "Aucun hit", "No payment-level tracing": "Pas de traçage au niveau du paiement", "No rejections, no incident review needed": "Aucun rejet, aucune revue d'incident nécessaire", "No shared definition of a payment's state": "Pas de définition commune de l'état d'un paiement", "No single rule failed. The system had no way to connect the signals.": "Aucune règle n'a échoué seule. Le système n'avait aucun moyen de relier les signaux.", "Non-bank PSPs must send and receive from 9 April 2027. New competitors arrive on the same rails.": "Les PSP non bancaires doivent envoyer et recevoir à partir du 9 avril 2027. De nouveaux concurrents arrivent sur les mêmes rails.", "Non-euro Member States and non-bank PSPs join": "Les États membres hors zone euro et les PSP non bancaires rejoignent le dispositif", "None": "Aucun", "Nothing in the stack owns a payment that is neither done nor failed.": "Rien dans l'empilement ne possède un paiement ni terminé ni échoué.", "Notifications are instant, but pending states give no estimate.": "Les notifications sont instantanées, mais les états en attente n'offrent aucune estimation.", "Nov 2027": "Nov. 2027", "Obligation": "Obligation", "Observable by design": "Observable par conception", "Office hours, email hand-offs, 14-step investigations": "Heures de bureau, relais par email, enquêtes en 14 étapes", "Office-hours teams,": "Équipes en heures de bureau,", "Office-hours teams, weekend on-call rota, a 14-step investigation.": "Équipes en heures de bureau, astreinte le week-end, une enquête en 14 étapes.", "On call only": "Astreinte seule", "One CSM link": "Un seul lien CSM", "One canonical ISO 20022 model, mapped once at the edge. Reference data is cached and updated by events: 180 ms.": "Un seul modèle canonique ISO 20022, mappé une fois en bordure. Les données de référence sont mises en cache et mises à jour par événements : 180 ms.", "One canonical model, mapped once at the edge.": "Un seul modèle canonique, mappé une fois en bordure.", "One case, one owner, one timeline from the payment trace": "Un dossier, un responsable, une chronologie issue de la trace du paiement", "One connection to the CSM, manual fail-over procedure. The round trip itself takes about 1.3 s.": "Une seule connexion au CSM, procédure de bascule manuelle. L'aller-retour lui-même prend environ 1,3 s.", "One decision API for every channel, with network features on mule accounts": "Une API de décision pour chaque canal, avec des features réseau sur les comptes mules", "One decision API scores device, behaviour, payee and network features in about 300 ms, then picks a friction level: 320 ms at p99.": "Une API de décision score appareil, comportement, bénéficiaire et features réseau en 300 ms environ, puis choisit un niveau de friction : 320 ms en p99.", "One decision API serves every channel": "Une API de décision sert tous les canaux", "One decision layer": "Une couche de décision", "One event-driven path for every channel, 2.5 s p99": "Un seul chemin événementiel pour chaque canal, 2,5 s en p99", "One liquidity cockpit shared by Treasury and Payments Ops": "Un seul cockpit de liquidité partagé par la Trésorerie et Payments Ops", "One platform, one decision layer,": "Une plateforme, une couche de décision,", "One queue and one truth for each payment": "Une file et une vérité pour chaque paiement", "One real-time decision API": "Une API de décision en temps réel", "One real-time decision API for fraud, payee-check outcome and limits across every channel": "Une API de décision en temps réel pour la fraude, le résultat de la vérification du bénéficiaire et les plafonds sur tous les canaux", "One real-time decision API with adaptive friction": "Une API de décision en temps réel avec friction adaptative", "Operating savings": "Économies d'exploitation", "Operational processes": "Processus opérationnels", "Operations": "Opérations", "Operations and data": "Opérations et données", "Operations and exceptions": "Opérations et exceptions", "Operations roles move from processing to supervising and improving": "Les rôles opérationnels passent du traitement à la supervision et à l'amélioration", "Ops checks fraud queue": "Ops vérifie la file fraude", "Ops drafts an answer": "Ops rédige une réponse", "Ops emails CSM contact": "Ops écrit au contact CSM", "Ops emails beneficiary bank": "Ops écrit à la banque bénéficiaire", "Ops reconciles ledgers": "Ops réconcilie les ledgers", "Ops searches three systems": "Ops cherche dans trois systèmes", "Orchestration": "Orchestration", "Out of every 10,000 instant payments": "Sur 10 000 paiements instantanés", "Outcome: hours of rejections": "Résultat : des heures de rejets", "Outcome: missed": "Résultat : manqué", "Outcome: paid": "Résultat : payé", "Outcome: ~14 h in limbo": "Résultat : ~14 h en suspens", "Outflows run well above forecast": "Les sorties dépassent largement la prévision", "P99 forecast plus an event calendar": "prévision P99 plus un calendrier d'événements", "P99 forecast, alerts, dynamic limits": "Prévision P99, alertes, limites dynamiques", "P99 forecast, event calendar, alerts at 70%, rehearsed weekend drills": "Prévision P99, calendrier d'événements, alertes à 70 %, exercices de week-end répétés", "P99-based buffer, 12% headroom": "Coussin P99, 12 % de marge", "PSD2": "PSD2", "Partial": "Partiel", "Pass, under 120 ms": "Passe, sous 120 ms", "Payback": "Rentabilité", "Payee check": "Vérification du bénéficiaire", "Payee check, adaptive friction, call-back option": "Vérification du bénéficiaire, friction adaptative, option de rappel", "Payee intelligence": "Renseignements sur le bénéficiaire", "Payee intelligence in the journey, limits self-service, request-to-pay pilot": "Renseignements sur le bénéficiaire dans le parcours, plafonds en libre-service, pilote request-to-pay", "Payment Services Regulation proposals": "Propositions de règlement sur les services de paiement", "Payment events, feature store, MLOps with drift monitoring, model risk governance.": "Événements de paiement, feature store, MLOps avec suivi de la dérive, gouvernance du risque de modèle.", "Payment flows": "Flux de paiement", "Payment tracing and SRE dashboards": "Traçage des paiements et tableaux de bord SRE", "Payments": "Paiements", "Payments Ops": "Payments Ops", "Payments Transformation Office · DORA resilience testing · model risk committee · phase gates.": "Bureau de transformation des paiements · tests de résilience DORA · comité de risque de modèle · critères de phase.", "Payments Transformation Office, product ownership, RACI": "Bureau de transformation des paiements, propriété produit, RACI", "Payments control tower": "Tour de contrôle des paiements", "Payments digital twin for what-if testing": "Jumeau numérique des paiements pour tester des scénarios", "Payments operating model": "Modèle opérationnel des paiements", "Payments operations team lead": "Responsable d'équipe des opérations de paiement", "People and governance": "Personnes et gouvernance", "Per-payment sanctions screening": "Filtrage des sanctions par paiement", "Per-payment screening": "Filtrage par paiement", "Personas are fictional composites I wrote for this case study.": "Les personas sont des composites fictifs que j'ai écrits pour cette étude de cas.", "Pilot with a 2% abandonment guardrail, message testing with real customers": "Pilote avec un garde-fou d'abandon de 2 %, tests de messages avec de vrais clients", "Portfolio project 05": "Projet portfolio 05", "Portfolio project 05 · European Payments Transformation · Paris, October 2026": "Projet portfolio 05 · Transformation des paiements européens · Paris, octobre 2026", "Posting via shadow ledger": "Comptabilisation via le shadow ledger", "Power →": "Pouvoir →", "Predict, adapt, learn": "Prédire, s'adapter, apprendre", "Predictive liquidity with an event calendar and an optimiser": "Liquidité prédictive avec calendrier d'événements et optimiseur", "Predictive operations: failures flagged before customers feel them": "Opérations prédictives : les défaillances détectées avant que les clients les ressentent", "Pricing governance inside the product catalogue": "Gouvernance tarifaire au sein du catalogue produit", "Priority": "Priorité", "Proactive messages before the customer asks, in-app recall": "Messages proactifs avant que le client ne demande, rappel dans l'app", "Process Transformation": "Transformation des processus", "Process transformation: one decision layer, 24/7 operations.": "Transformation des processus : une couche de décision, des opérations 24/7.", "Processes": "Processus", "Profile": "Profil", "Programme cost": "Coût du programme", "Programme cost overrun": "Dépassement du coût du programme", "Proof in the app within seconds": "Preuve dans l'app en quelques secondes", "Proof of payment": "Preuve", "Publication is planned for November 2026. I plan the adapter work into my 2027 phase.": "La publication est prévue en novembre 2026. J'intègre le travail sur l'adaptateur à ma phase 2027.", "Queue": "File", "Raised automatically to the counterparty": "Demande envoyée automatiquement à la contrepartie", "Read my executive summary": "Lire ma synthèse", "Real-time by default": "Temps réel par défaut", "Real-time features at scale, MLOps with drift monitoring": "Features temps réel à grande échelle, MLOps avec suivi de la dérive", "Real-time liquidity engine": "Moteur de liquidité temps réel", "Real-time payment platform": "Plateforme de paiement temps réel", "Real-time reservation in a 24/7 ledger service, with the core reconciled by events and every reservation idempotent: 250 ms.": "Réservation en temps réel dans un service de ledger 24/7, cœur rapproché par événements et chaque réservation idempotente : 250 ms.", "Real-time scoring": "Scoring temps réel", "Real-time status and notifications for every payment state": "Statut et notifications en temps réel pour chaque état de paiement", "Real-time status with an estimate, request-to-pay": "Statut en temps réel avec estimation, request-to-pay", "Recall orchestration, mule-account takedown, intelligence sharing": "Orchestration des rappels, démantèlement des comptes mules, partage de renseignements", "Recalls and returns": "Rappels et retours", "Receive instant payments, screen customers daily": "Recevoir des paiements instantanés, filtrer les clients quotidiennement", "Recovery": "Reprise", "Redesign how work flows": "Repenser la circulation du travail", "Regulation": "Réglementation", "Regulation and compliance": "Réglementation et conformité", "Regulation sets the minimum.": "La réglementation fixe le minimum.", "Regulatory moving target (VoP 2.0, fraud liability proposals)": "Cible réglementaire mouvante (VoP 2.0, propositions sur la responsabilité en cas de fraude)", "Regulatory radar owned by the Transformation Office": "Radar réglementaire tenu par le Bureau de transformation", "Released or confirmed by an event, no duplicate": "Libérée ou confirmée par un événement, pas de doublon", "Reports the next morning": "Rapports le lendemain matin", "Requirement": "Exigence", "Reservation": "Réservation", "Reskilling plan, model risk governance for ML in payments": "Plan de montée en compétences, gouvernance du risque de modèle pour le ML dans les paiements", "Resolved without a person, customer informed": "Résolu sans intervention humaine, client informé", "Retail and SME product owners": "Responsables produit particuliers et PME", "Retiree, 67": "Retraité, 67 ans", "Risk": "Risque", "Risk and compliance": "Risques et conformité", "Risk-based exemptions decided in the single decision layer": "Exemptions fondées sur le risque décidées dans la couche de décision unique", "Risks": "Risques", "Roadmap": "Roadmap", "Roadmap 2026 to 2029": "Roadmap 2026 à 2029", "Roadmap with gates": "Roadmap avec critères de passage", "Rules per channel, static thresholds": "Règles par canal, seuils statiques", "Rules per channel, static thresholds, alerts reviewed in office hours.": "Règles par canal, seuils statiques, alertes examinées en heures de bureau.", "Run payments as a learning system: it anticipates problems, adapts its controls and improves itself under supervision.": "Piloter les paiements comme un système apprenant : il anticipe les problèmes, adapte ses contrôles et s'améliore sous supervision.", "Run-rate benefit 2029, €M": "Bénéfice en régime de croisière 2029, M€", "Runbooks as code, reviewed after every incident": "Runbooks as code, revus après chaque incident", "SECONDS, ALL-IN": "SECONDES, TOUT COMPRIS", "Safety without a lecture": "La sécurité sans la leçon de morale", "Same payment,": "Même paiement,", "Sanctions and AML checks": "Sanctions et contrôles LCB", "Sanctions engine, per payment": "Moteur de sanctions, par paiement", "Sat": "Sam", "Sat 12:00": "Sam 12:00", "Saturday 02:00, new sanctions list published": "Samedi 02:00, nouvelle liste de sanctions publiée", "Scenario lab": "Labo de scénarios", "Scheme adapters: SCT Inst, VoP": "Adaptateurs de schéma : SCT Inst, VoP", "Score 0.87: new payee, remote-access tool detected, account opened 6 days ago, 3 prior reports on it": "Score 0,87 : nouveau bénéficiaire, outil d'accès à distance détecté, compte ouvert depuis 6 jours, 3 signalements antérieurs", "See and standardise": "Voir et standardiser", "Sees \"pending\" for an instant payment": "Voit « en attente » pour un paiement instantané", "Sees the true state with a reason in seconds": "Voit l'état réel avec un motif en quelques secondes", "Self-healing runbooks, capacity that scales tenfold without re-platforming": "Runbooks auto-réparateurs, capacité multipliée par dix sans changer de plateforme", "Send and receive 24/7, funds in 10 s": "Envoyer et recevoir 24/7, fonds en 10 s", "Send instant payments and verify the payee": "Envoyer des paiements instantanés et vérifier le bénéficiaire", "Send to the CSM": "Envoi au CSM", "Send, receive, verify the payee, screen customers daily, and charge no more than for a standard transfer. Resilience rules under DORA apply on top.": "Envoyer, recevoir, vérifier le bénéficiaire, filtrer les clients chaque jour, et ne pas facturer plus cher qu'un virement standard. Les règles de résilience de DORA s'ajoutent.", "Session and device": "Session et appareil", "Settlement": "Règlement", "Settlement and liquidity": "Règlement et liquidité", "Settlement round trip": "Aller-retour de règlement", "Shadow ledger syncs every five minutes, core not 24/7, little tracing.": "Le shadow ledger se synchronise toutes les cinq minutes, cœur non 24/7, peu de traçage.", "Shadow ledger, 5-minute sync": "Shadow ledger, synchronisation à 5 minutes", "Shadow ledger, single CSM link": "Shadow ledger, lien CSM unique", "Share of all exceptions": "Part de toutes les exceptions", "Should": "Devrait", "Single real-time decision API, adaptive friction pilot": "API de décision temps réel unique, pilote de friction adaptative", "Sized on a P99 forecast plus the event calendar": "Calé sur une prévision P99 plus le calendrier d'événements", "Sized on a four-week average": "Calé sur une moyenne de quatre semaines", "Smart routing, auto fail-over": "Routage intelligent, bascule automatique", "Source": "Source", "Sources": "Sources", "Sources: EPC update to the ECB AMI-Pay group, 5 May 2026; Instant Payments Regulation as summarised by the DNB.": "Sources : mise à jour de l'EPC au groupe AMI-Pay de la BCE, 5 mai 2026 ; règlement sur les paiements instantanés tel que résumé par la DNB.", "Spreadsheet guesswork, no event calendar": "Estimations au doigt mouillé dans un tableur, pas de calendrier d'événements", "Stakeholder map I would use": "Cartographie des parties prenantes que j'utiliserais", "Starting point": "Point de départ", "Static buffers, manual top-ups": "Coussins statiques, recharges manuelles", "Static buffers, manual top-ups, no event calendar.": "Coussins statiques, recharges manuelles, pas de calendrier d'événements.", "Static pre-funding,": "Pré-financement statique,", "Static rules per channel behind a queue that adds seconds under load. 2,400 ms at p99, and a review queue only worked in office hours.": "Règles statiques par canal derrière une file qui ajoute des secondes sous charge. 2 400 ms en p99, et une file de revue qui ne fonctionnait qu'en heures de bureau.", "Status events push to the app, the API and corporate host-to-host at the same moment: 450 ms.": "Les événements de statut sont poussés vers l'app, l'API et le host-to-host entreprise au même moment : 450 ms.", "Status events reach the app, the API and corporate host-to-host at the same time": "Les événements de statut atteignent l'app, l'API et le host-to-host entreprise en même temps", "Status refresh": "Rafraîchissement du statut", "Status request": "Demande de statut", "Status stays \"pending\"": "Le statut reste « en attente »", "Step 1": "Étape 1", "Step 2": "Étape 2", "Step 3": "Étape 3", "Step 4": "Étape 4", "Step 5": "Étape 5", "Step 6": "Étape 6", "Straight-through rate": "Taux de traitement automatique", "Straight-through rate at 95% or better": "Taux de traitement automatique à 95 % ou plus", "Straight-through rate, baseline": "Taux de traitement automatique, référence", "Strangler pattern: the hub sits in front of the core, instant moves first, the core stays until evidence says otherwise": "Pattern étrangleur : le hub se place devant le cœur, l'instantané migre en premier, le cœur reste jusqu'à ce que les preuves disent le contraire", "Streaming AML": "LCB en streaming", "Stress-test my case": "Mettre mon scénario à l'épreuve", "Strong customer authentication": "Authentification forte du client", "Strong on paper,": "Solide sur le papier,", "Summary": "Synthèse", "Sun": "Dim", "Sun 00:00": "Dim 00:00", "Sun 12:00": "Dim 12:00", "Sunday 03:12, €45 to a known payee": "Dimanche 03:12, 45 € vers un bénéficiaire connu", "Supervisor": "Superviseur", "Synced": "Synchronisé", "T2 reopens Monday, Treasury tops up": "T2 rouvre lundi, la Trésorerie recharge", "TIPS plus a second CSM": "TIPS plus un second CSM", "TIPS plus a second CSM behind a routing layer with automatic fail-over, and timeouts handled by scheme rules: 1,150 ms. This is the part the bank controls least, so it is the part I protect with a resilient design.": "TIPS plus un second CSM derrière une couche de routage avec bascule automatique, et timeouts gérés par les règles du schéma : 1 150 ms. C'est la partie que la banque contrôle le moins, c'est donc celle que je protège par un design résilient.", "TO-BE design": "Design TO-BE", "TO-BE operating model": "Modèle opérationnel TO-BE", "TO-BE · 5 steps · 1 hand-off · 90 minutes": "TO-BE · 5 étapes · 1 relais · 90 minutes", "TO-BE · Confirm and notify · 450 ms": "TO-BE · Confirmation et notification · 450 ms", "TO-BE · Fraud decision · 320 ms": "TO-BE · Décision fraude · 320 ms", "TO-BE · Funds and posting · 250 ms": "TO-BE · Fonds et comptabilisation · 250 ms", "TO-BE · Initiate, authenticate, check the payee": "TO-BE · Initier, authentifier, vérifier le bénéficiaire", "TO-BE · Sanctions and AML checks · 150 ms": "TO-BE · Sanctions et contrôles LCB · 150 ms", "TO-BE · Settlement round trip · 1,150 ms": "TO-BE · Aller-retour de règlement · 1 150 ms", "TO-BE · Validate and enrich · 180 ms": "TO-BE · Valider et enrichir · 180 ms", "TO-BE · my target design": "TO-BE · mon design cible", "Take the human out of the loop": "Sortir l'humain de la boucle", "Target architecture approved by the executive committee": "Architecture cible approuvée par le comité exécutif", "Target blueprint, ISO 20022 canonical model, end-to-end payment tracing": "Blueprint cible, modèle canonique ISO 20022, traçage des paiements de bout en bout", "Targeted by impersonation scams, warnings ignored": "Cible d'arnaques par usurpation, avertissements ignorés", "Taxonomy shares and automation rates are my modelling assumptions.": "Les parts de taxonomie et les taux d'automatisation sont mes hypothèses de modélisation.", "Taxonomy, automated triage, one workbench": "Taxonomie, tri automatisé, un seul poste de travail", "Technology architecture": "Architecture technique", "The 10 seconds are 91% spent": "Les 10 secondes sont consommées à 91 %", "The KPI ladder is what the phase gates check. The business case below is a model I built on stated assumptions. Move the sliders to stress it.": "L'échelle de KPI est ce que vérifient les critères de phase. Le business case ci-dessous est un modèle que j'ai bâti sur des hypothèses explicites. Bougez les curseurs pour le mettre à l'épreuve.", "The bank is strongest where a regulator can check a box, and weakest where the customer and the operations team live every day. That gap is the whole business case.": "La banque est la plus forte là où un régulateur peut cocher une case, et la plus faible là où le client et l'équipe opérationnelle vivent chaque jour. Cet écart est tout le business case.", "The beneficiary bank does not answer in time": "La banque bénéficiaire ne répond pas à temps", "The control moved from the payment to the customer, which is where the regulation puts it.": "Le contrôle est passé du paiement au client, ce qui est exactement l'endroit où la réglementation le place.", "The core is not 24/7, so a shadow ledger syncs every five minutes. Customer retries can double-reserve funds: 1,700 ms.": "Le cœur n'est pas 24/7, donc un shadow ledger se synchronise toutes les cinq minutes. Les nouvelles tentatives du client peuvent double-réserver les fonds : 1 700 ms.", "The customer does not measure seconds. They measure certainty.": "Le client ne mesure pas les secondes. Il mesure la certitude.", "The customer sees \"pending\" until a status refresh. Corporate clients wait for a file: 900 ms plus the refresh.": "Le client voit « en attente » jusqu'à un rafraîchissement du statut. Les clients entreprise attendent un fichier : 900 ms plus le rafraîchissement.", "The deadlines are behind us.": "Les échéances sont derrière nous.", "The decision stayed inside the budget; the customer made the final call with better information.": "La décision est restée dans le budget ; le client a pris la décision finale avec de meilleures informations.", "The hub applies the scheme timeout rules": "Le hub applique les règles de timeout du schéma", "The hub gives every in-between state an owner and a timer.": "Le hub donne à chaque état intermédiaire un responsable et un minuteur.", "The operating model": "Le modèle opérationnel", "The operating model sets the margin.": "Le modèle opérationnel fixe la marge.", "The payee check drives the journey: match, close match or no match each get a different path. The outcome and the payee's risk history feed the risk score.": "La vérification du bénéficiaire pilote le parcours : correspondance, correspondance proche ou absence de correspondance déclenchent chacune un chemin différent. Le résultat et l'historique de risque du bénéficiaire alimentent le score de risque.", "The payee check result changes the journey: match, close match, no match": "Le résultat de la vérification du bénéficiaire modifie le parcours : correspondance, correspondance proche, aucune correspondance", "The payee name check is an optional screen. When the name does not match, customers tap through it, and nothing downstream learns that it happened.": "La vérification du nom du bénéficiaire est un écran optionnel. Quand le nom ne correspond pas, les clients passent outre, et rien en aval n'apprend que cela s'est produit.", "The payment never leaves the bank": "Le paiement ne quitte jamais la banque", "The platform bends at today's volume. It breaks at ten times.": "La plateforme plie au volume d'aujourd'hui. Elle casse à dix fois.", "The problems sit in the seams": "Les problèmes se logent dans les jonctions", "The regulation made speed a commodity. What remains scarce is doing it safely, cheaply and at 03:00 on a Sunday.": "La réglementation a fait de la vitesse une commodité. Ce qui reste rare, c'est de le faire en sécurité, à bas coût, et à 03:00 un dimanche.", "The rulebook for euro instant payments in the EU is set.": "Le cadre des paiements instantanés en euros dans l'UE est posé.", "The same payment leaves room for a bad day.": "Le même paiement laisse de la marge pour un mauvais jour.", "The same spike becomes a monitoring event instead of an outage.": "Le même pic devient un événement de supervision au lieu d'une panne.", "The seams between teams cost more than any single system, so I designed around": "Les jonctions entre équipes coûtent plus cher que n'importe quel système, j'ai donc conçu autour d'", "The second euro-area deadline. This is where my reference bank leaned on a bolt-on gateway.": "La deuxième échéance de la zone euro. C'est là que ma banque de référence s'est appuyée sur une passerelle bolt-on.", "The volume curve is not.": "Pas la courbe des volumes.", "The weekend was a Friday decision, and Friday had no forecast.": "Le week-end était une décision du vendredi, et le vendredi n'avait pas de prévision.", "This is a personal portfolio case study, not a client engagement. The reference bank, its volumes, latencies, KPIs, costs and benefits are assumptions I set to make the reasoning concrete. Market and regulatory facts below come from public sources. Dates for non-euro Member States and for DORA come from my own reading and should be re-checked before anyone relies on them.": "Il s'agit d'une étude de cas de portfolio personnelle, pas d'une mission client. La banque de référence, ses volumes, latences, KPI, coûts et bénéfices sont des hypothèses que j'ai posées pour rendre le raisonnement concret. Les faits de marché et de réglementation ci-dessous viennent de sources publiques. Les dates pour les États membres hors zone euro et pour DORA viennent de ma propre lecture et doivent être revérifiées avant que quiconque s'y fie.", "This is the part of the work where I turn a strategy into something a delivery team can build and a steering committee can approve.": "C'est la partie du travail où je transforme une stratégie en quelque chose qu'une équipe de delivery peut construire et qu'un comité de pilotage peut approuver.", "Threat": "Menace", "Three channel mappers": "Trois mappers de canal", "Three channel-specific mappers": "Trois mappers spécifiques à chaque canal", "Three channel-specific mappers convert to ISO 20022. Enrichment calls legacy reference data, so the step costs 900 ms.": "Trois mappers spécifiques à chaque canal convertissent en ISO 20022. L'enrichissement appelle des données de référence historiques, l'étape coûte donc 900 ms.", "Three things I learned building it.": "Trois choses que j'ai apprises en le construisant.", "Thu": "Jeu", "Timeout detected": "Timeout détecté", "Timeouts and connectivity": "Timeouts et connectivité", "To (TO-BE)": "Vers (TO-BE)", "To know the weekend position before Friday closes": "Connaître la position du week-end avant la clôture du vendredi", "To pay and be paid at any hour, and to know it landed": "Payer et être payée à toute heure, et savoir que c'est arrivé", "Today": "Aujourd'hui", "Today 1.5 / 5": "Aujourd'hui 1,5 / 5", "Today 2.0 / 5": "Aujourd'hui 2,0 / 5", "Today 2.5 / 5": "Aujourd'hui 2,5 / 5", "Today 3.0 / 5": "Aujourd'hui 3,0 / 5", "Today versus 2029 target": "Aujourd'hui contre cible 2029", "Today, 8 Oct 2026": "Aujourd'hui, 8 oct. 2026", "Tom": "Tom", "Total 2.5 s": "Total 2,5 s", "Total 9.1 s": "Total 9,1 s", "Trace ID shows the full path": "L'identifiant de trace montre le chemin complet", "Treasury": "Trésorerie", "Treasury analyst": "Analyste trésorerie", "Treasury and Payments Ops see the same cockpit": "La Trésorerie et Payments Ops voient le même cockpit", "Treasury reachable Monday, not at 22:00 Saturday": "Trésorerie joignable lundi, pas à 22:00 le samedi", "Treasury reachable on Monday": "Trésorerie joignable lundi", "Triggered by every list update, fully auditable": "Déclenché à chaque mise à jour de liste, entièrement auditable", "Triggers the delta run on the customer base within minutes": "Déclenche le run delta sur la base clients en quelques minutes", "Try the scenario lab": "Essayer le labo de scénarios", "Tue": "Mar", "Under the IPR, PSPs verify their customers against restrictive-measure lists at least once per calendar day, in place of screening each instant payment. I use that to take sanctions out of the critical path and keep a light check for edge cases: 150 ms.": "En vertu de l'IPR, les PSP vérifient leurs clients contre les listes de mesures restrictives au moins une fois par jour calendaire, à la place du filtrage de chaque paiement instantané. J'en tire parti pour sortir les sanctions du chemin critique et garder un contrôle léger pour les cas limites : 150 ms.", "Unified payment API": "API de paiement unifiée", "Unify fraud case data across channels, baseline alert quality": "Unifier les données de dossiers fraude entre canaux, qualité des alertes de référence", "Unit cost index": "Indice de coût unitaire", "Unit cost index (2026 = 100)": "Indice de coût unitaire (2026 = 100)", "Unit cost index at 58 or lower": "Indice de coût unitaire à 58 ou moins", "Validate and enrich": "Valider et enrichir", "Vendor concentration and exit under DORA": "Concentration des fournisseurs et sortie sous DORA", "Vendors": "Fournisseurs", "Verification of Payee": "Vérification du bénéficiaire (VoP)", "Verification of Payee result, account age, prior reports on the beneficiary": "Résultat de la vérification du bénéficiaire, ancienneté du compte, signalements antérieurs sur le bénéficiaire", "Versioned scheme adapter with contract tests": "Adaptateur de schéma versionné avec tests de contrat", "Versioned scheme adapters, a regulatory radar owned by the Transformation Office": "Adaptateurs de schéma versionnés, radar réglementaire tenu par le Bureau de transformation", "VoP 2.0 readiness for November 2027, DORA resilience testing programme": "Préparation à la VoP 2.0 pour novembre 2027, programme de tests de résilience DORA", "Wait for reply": "Attente de réponse", "Wait for result": "Attente", "Warning, cooling-off, call-back or hold, chosen by risk band": "Avertissement, délai de réflexion, rappel ou blocage, choisis selon la bande de risque", "Watch": "À surveiller", "Web banking": "Banque en ligne", "Wed": "Mer", "Weekend liquidity shortfall in a demand spike": "Déficit de liquidité du week-end lors d'un pic de demande", "Weekend rota runs without escalations to the on-call director": "Le tour de garde du week-end tourne sans escalade vers le directeur d'astreinte", "What I changed": "Ce que j'ai changé", "What I designed": "Ce que j'ai conçu", "What I found": "Ce que j'ai constaté", "What I recommend": "Ce que je recommande", "What I take from this": "Ce que j'en retiens", "What I would do next with real data": "Ce que je ferais ensuite avec de vraies données", "What I would measure,": "Ce que je mesurerais,", "What could go wrong,": "Ce qui pourrait mal tourner,", "What happens when the happy path breaks?": "Que se passe-t-il quand le chemin nominal casse ?", "When the happy path breaks, a person opens a spreadsheet.": "Quand le chemin nominal casse, une personne ouvre un tableur.", "Where does a payment spend its ten seconds?": "Où un paiement dépense-t-il ses dix secondes ?", "Where it lands in 2029 (my targets)": "Où j'arrive en 2029 (mes cibles)", "Where my case study starts": "Là où démarre mon étude de cas", "Where the seconds, the hours and the euros go.": "Où vont les secondes, les heures et les euros.", "Which obligations are met by design, and which by effort?": "Quelles obligations sont respectées par conception, et lesquelles par effort ?", "Who is awake? One week, hour by hour": "Qui est éveillé ? Une semaine, heure par heure", "Who it affects,": "Qui est concerné,", "Who touches it, when, and why?": "Qui y touche, quand et pourquoi ?", "Why now": "Pourquoi maintenant", "Workstream": "Chantier", "You are here": "Vous êtes ici", "adjusted by hand on business days": "ajusté à la main les jours ouvrés", "and what I would ask for.": "et ce que je demanderais.", "and what I would do about it.": "et ce que j'y ferais.", "and what it pays back.": "et ce que cela rapporte.", "are left for people after 73% of those are triaged and resolved automatically": "restent pour des personnes après le tri et la résolution automatiques de 73 % d'entre eux", "at p99. A slow beneficiary bank or a busy fraud engine is enough to miss the target. My redesigned flow needs 2.5 s.": "en p99. Une banque bénéficiaire lente ou un moteur antifraude chargé suffit à rater la cible. Mon flux redessiné en demande 2,5 s.", "before the clock": "avant le chrono", "customer time": "temps client", "decides who stays in the race.": "décide qui reste dans la course.", "decisions that stay reversible": "décisions qui restent réversibles", "for funds to reach the payee, any hour, any day, all year": "pour que les fonds arrivent chez le bénéficiaire, à toute heure, tous les jours, toute l'année", "for the instant era": "pour l'ère de l'instantané", "fraud and sanctions consume 47% of the budget in my model, while the part I do not control, the settlement round trip, needs only about a second. I rebuilt the flow so the bank's own steps shrink and the margin grows. Click a step to see what changes.": "la fraude et les sanctions consomment 47 % du budget dans mon modèle, alors que la partie que je ne contrôle pas, l'aller-retour de règlement, n'en demande qu'environ une seconde. J'ai reconstruit le flux pour que les étapes propres à la banque raccourcissent et que la marge grandisse. Cliquez sur une étape pour voir ce qui change.", "how a payment moves": "comment un paiement circule", "how it reaches the market": "comment il atteint le marché", "how people see it": "comment les équipes le voient", "instant payments in 2025, up 73% on the year before": "paiements instantanés en 2025, en hausse de 73 % sur l'année précédente", "instant payments settle in central bank money around the clock through TIPS, but a bank tops up its liquidity through T2, which follows business-day opening hours. So the weekend buffer has to be sized on Friday. The bank sizes it on a four-week average, and a single Saturday-night spike breaks it.": "les paiements instantanés se règlent en monnaie banque centrale en continu via TIPS, mais une banque recharge sa liquidité via T2, qui suit les horaires d'ouverture des jours ouvrés. Le coussin du week-end doit donc être dimensionné le vendredi. La banque le dimensionne sur une moyenne de quatre semaines, et un seul pic du samedi soir le fait sauter.", "minutes": "minutes", "need a human today, all of them handled manually": "nécessitent un humain aujourd'hui, tous traités manuellement", "of SEPA credit transfer volume was instant in Q1 2026": "des virements SEPA étaient instantanés au T1 2026", "of euro-area PSPs already offered SCT Inst in April 2026": "des PSP de la zone euro proposaient déjà le SCT Inst en avril 2026", "of every 10,000 instant payments need a human today. With an exception taxonomy and automated triage I take that to": "sur 10 000 paiements instantanés nécessitent un humain aujourd'hui. Avec une taxonomie des exceptions et un tri automatisé, je ramène cela à", "on average. Compliance is its strongest lens at 3.0. Architecture and exception handling are its weakest at 1.5.": "en moyenne. La conformité est son axe le plus fort à 3,0. L'architecture et la gestion des exceptions sont les plus faibles à 1,5.", "one 24/7 desk.": "un desk 24/7.", "one decision layer and one desk": "une couche de décision et d'un desk", "ongoing": "en continu", "p95 time to certainty, 2029": "Délai p95 de certitude, 2029", "p95 time to certainty, today": "Délai p95 de certitude, aujourd'hui", "p99 end-to-end latency": "Latence de bout en bout p99", "p99 latency": "Latence p99", "p99 latency, baseline": "Latence p99, référence", "remain once I fix root causes at source: better validation, fewer false holds": "restent une fois les causes racines corrigées à la source : meilleure validation, moins de faux blocages", "the bank still runs rules per channel with static thresholds, reviewed in office hours. I designed five layers, and I made the third, real-time scoring, answer in about 300 ms so that it never competes with the customer's experience.": "la banque fait toujours tourner des règles par canal avec des seuils statiques, examinées en heures de bureau. J'ai conçu cinq couches, et j'ai fait en sorte que la troisième, le scoring temps réel, réponde en 300 ms environ pour ne jamais entrer en concurrence avec l'expérience du client.", "the experience is fine until something is pending. The lowest point of the journey is the wait for a result with no estimate and no explanation. I mapped how confident a customer feels at each stage, before and after my redesign.": "l'expérience est bonne jusqu'à ce que quelque chose soit en attente. Le point le plus bas du parcours est l'attente d'un résultat sans estimation ni explication. J'ai cartographié le niveau de confiance du client à chaque étape, avant et après ma refonte.", "the gateway is modern, but everything behind it is batch-era. I chose a strangler approach. I do not replace the core in one go. I put an event-driven hub in front of it and move instant payments across first.": "la passerelle est moderne, mais tout ce qui se trouve derrière date de l'ère batch. J'ai choisi une approche étrangleur. Je ne remplace pas le cœur d'un coup. Je place un hub événementiel devant lui et j'y déplace d'abord les paiements instantanés.", "the product never closes, but the people and the playbooks do. I picked one process, investigating a payment the customer cannot find, and counted every step and hand-off. Then I drew the week.": "le produit ne ferme jamais, mais les équipes et les playbooks si. J'ai pris un processus, l'enquête sur un paiement que le client ne retrouve pas, et compté chaque étape et chaque relais. Puis j'ai dessiné la semaine.", "thin underneath.": "fragile dessous.", "this is the bank's best lens, and it still depends on people compiling evidence. I moved each obligation from \"someone proves it\" to \"the system proves it\".": "c'est le meilleur axe de la banque, et il dépend encore de personnes qui compilent des preuves. J'ai fait passer chaque obligation de « quelqu'un le prouve » à « le système le prouve ».", "to": "vers", "two operating models.": "deux modèles opérationnels.", "until the evidence arrives.": "jusqu'à l'arrivée des preuves.", "weekend coverage by on-call rota": "couverture le week-end par astreinte", "what customers touch": "ce que touchent les clients", "where the money is": "où se trouve l'argent", "who says yes or no": "qui dit oui ou non", "with a partner hub, automation as first line": "avec un hub partenaire, l'automatisation en première ligne", "~250 ms": "~250 ms", "~30 ms": "~30 ms", "€4,800 to a new payee, name does not match": "4 800 € vers un nouveau bénéficiaire, le nom ne correspond pas", "Switch language": "Changer de langue"};
+const DAYS={Mon:'Lun',Tue:'Mar',Wed:'Mer',Thu:'Jeu',Fri:'Ven',Sat:'Sam',Sun:'Dim'};
+let lang='en';
+function numFR(s){
+  s=s.replace(/(?<!\w)(\d+)\.(\d+)/g,'$1,$2');
+  s=s.replace(/(\d),(\d{3})(?!\d)/g,'$1\u202f$2');
+  s=s.replace(/(\d)\s?%/g,'$1\u00a0%');
+  return s;
+}
+function pat(t){
+  let m;
+  if(m=t.match(/^(Mon|Tue|Wed|Thu|Fri|Sat|Sun) (\d{1,2}:\d\d)$/)) return DAYS[m[1]]+' '+m[2];
+  if(m=t.match(/^Buffer exhausted (Mon|Tue|Wed|Thu|Fri|Sat|Sun) (\d{1,2}:\d\d)$/)) return 'Coussin épuisé '+DAYS[m[1]]+' '+m[2];
+  if(m=t.match(/^About (\d+) hours of rejected payments$/)) return 'Environ '+m[1]+' heures de paiements rejetés';
+  if(m=t.match(/^(.+): (\d+) ms$/)){const x=FR[m[1]];if(x)return x+' : '+m[2]+' ms';}
+  return null;
+}
+function trText(t){const o=FR[t];return o!==undefined?o:pat(t);}
+function toFR(n){
+  if(n._en!==undefined)return;
+  const raw=n.nodeValue,t=raw.trim();if(!t)return;
+  const o=trText(t);
+  let res=o!=null?raw.replace(t,()=>o):raw;
+  res=numFR(res);
+  if(res!==raw){n._en=raw;n.nodeValue=res;}
+}
+function textNodes(root){
+  const out=[];
+  if(root.nodeType===3){out.push(root);return out;}
+  if(root.nodeType!==1)return out;
+  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>{const p=n.parentElement;return(!p||p.closest('script,style'))?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT;}});
+  let n;while(n=w.nextNode())out.push(n);return out;
+}
+const ATTRS=['aria-label','title'];
+function attrsFR(root){
+  const els=root.nodeType===1?[root,...root.querySelectorAll('[aria-label],[title]')]:[];
+  els.forEach(e=>ATTRS.forEach(a=>{
+    if(!e.hasAttribute(a))return;
+    e._enA=e._enA||{};
+    if(e._enA[a]!==undefined)return;
+    const v=e.getAttribute(a),o=trText(v.trim());
+    if(o!=null){e._enA[a]=v;e.setAttribute(a,o);}
+  }));
+}
+function attrsEN(){
+  document.querySelectorAll('[aria-label],[title]').forEach(e=>{
+    if(!e._enA)return;
+    for(const a in e._enA){e.setAttribute(a,e._enA[a]);}
+    e._enA=null;
+  });
+}
+const obs=new MutationObserver(ms=>{
+  if(lang!=='fr')return;
+  ms.forEach(m=>{
+    if(m.type==='characterData'){toFR(m.target);return;}
+    m.addedNodes.forEach(n=>{textNodes(n).forEach(toFR);attrsFR(n);});
+  });
+});
+function setLang(l,persist){
+  lang=l;
+  document.documentElement.lang=l;
+  document.querySelectorAll('#langBtn span').forEach(s=>s.classList.toggle('on',s.dataset.l===l));
+  const lb=document.getElementById('langBtn');
+  if(l==='fr'){
+    textNodes(document.body).forEach(toFR);attrsFR(document.body);
+    document.title=FR['European Payments Transformation'];
+    lb.setAttribute('aria-label','Changer de langue');lb.setAttribute('title','Changer de langue');
+  }else{
+    textNodes(document.body).forEach(n=>{if(n._en!==undefined){n.nodeValue=n._en;delete n._en;}});
+    attrsEN();
+    document.title='European Payments Transformation';
+    lb.setAttribute('aria-label','Switch language');lb.setAttribute('title','Switch language');
+  }
+  if(persist){try{localStorage.setItem('pay-lang',l);}catch(e){}}
+}
+obs.observe(document.body,{childList:true,subtree:true,characterData:true});
+document.getElementById('langBtn').addEventListener('click',()=>setLang(lang==='en'?'fr':'en',true));
+let saved=null;try{saved=localStorage.getItem('pay-lang');}catch(e){}
+if(saved==='fr')setLang('fr',false);
+window.__setLang=setLang;
+})();
+</script>
+
+</body>
+</html>

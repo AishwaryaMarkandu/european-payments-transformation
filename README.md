@@ -6,13 +6,10 @@
 **How should a European bank transform its payments operating model for the instant payments era?**<br>
 **Comment une banque européenne doit-elle transformer son modèle opérationnel des paiements pour l'ère des paiements instantanés ?**
 
-[![Live demo](https://img.shields.io/badge/Live%20demo-open%20the%20case%20study-E39B00?style=for-the-badge)](https://AishwaryaMarkandu.github.io/european-payments-transformation/)
+[![Live demo](https://img.shields.io/badge/Live%20demo-open%20the%20case%20study-E39B00?style=for-the-badge)](https://YOUR-USERNAME.github.io/european-payments-transformation/)
 ![Type](https://img.shields.io/badge/Portfolio%20project-05-1B3FA6?style=for-the-badge)
 ![Stack](https://img.shields.io/badge/Stack-HTML%20%C2%B7%20CSS%20%C2%B7%20vanilla%20JS-0B8574?style=for-the-badge)
 ![Languages](https://img.shields.io/badge/Languages-EN%20%7C%20FR-CC4234?style=for-the-badge)
-
-### 🔗 [Open the live case study → AishwaryaMarkandu.github.io/european-payments-transformation/](https://AishwaryaMarkandu.github.io/european-payments-transformation/)
-### 🔗 [Ouvrir l'étude de cas en ligne → AishwaryaMarkandu.github.io/european-payments-transformation/](https://AishwaryaMarkandu.github.io/european-payments-transformation/)
 
 [**English**](#-english) · [**Français**](#-français)
 
@@ -23,8 +20,6 @@
 ---
 
 # 🇬🇧 English
-
-> 🔗 **Live case study:** <https://AishwaryaMarkandu.github.io/european-payments-transformation/> (use the **EN / FR** button at the top of the page to switch language)
 
 ## What this is
 
@@ -108,7 +103,7 @@ Also in the page: the regulatory timeline, a TO-BE operating model, and a **busi
 No build step.
 
 ```bash
-git clone https://github.com/AishwaryaMarkandu/european-payments-transformation.git
+git clone https://github.com/YOUR-USERNAME/european-payments-transformation.git
 cd european-payments-transformation
 open index.html            # or: python3 -m http.server 8000
 ```
@@ -150,8 +145,6 @@ I'm **Aishwarya**, based in Paris, working across business analysis, process des
 ---
 
 # 🇫🇷 Français
-
-> 🔗 **Étude de cas en ligne :** <https://AishwaryaMarkandu.github.io/european-payments-transformation/> (le bouton **EN / FR** en haut de la page change la langue)
 
 ## De quoi s'agit-il
 
@@ -233,7 +226,7 @@ flowchart LR
 Aucune étape de build.
 
 ```bash
-git clone https://github.com/AishwaryaMarkandu/european-payments-transformation.git
+git clone https://github.com/YOUR-USERNAME/european-payments-transformation.git
 cd european-payments-transformation
 open index.html            # ou : python3 -m http.server 8000
 ```
